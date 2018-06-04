@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Tor-Browser (en-US)
-Exec=/usr/bin/tor-browser-en
-Icon=tor-browser-en
-Categories=Network;
-Comment=Tor Browser Bundle: Anonymous browsing using firefox and tor
-X-XFCE-Source=file:///usr/share/applications/tor-browser-en.desktop
