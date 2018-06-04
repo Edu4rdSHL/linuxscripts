@@ -1,7 +1,0 @@
-[app] (name=fbrun)
-  [Position]	(CENTER)	{0 0}
-  [Layer]	{2}
-[end]
-[app] (name=xclock) (class=XClock)
-  [Close]	{yes}
-[end]
