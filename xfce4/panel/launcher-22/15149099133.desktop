@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Signal Beta
+Comment=Private messaging from your desktop
+Exec="/opt/Signal Beta/signal-desktop-beta" %U
+Terminal=false
+Type=Application
+Icon=signal-desktop-beta
+StartupWMClass=Signal Beta
+Categories=Network;
+X-XFCE-Source=file:///usr/share/applications/signal-desktop-beta.desktop

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Wireshark (GTK+)
+GenericName=Network Analyzer
+Comment=Network traffic analyzer
+Icon=wireshark
+TryExec=wireshark-gtk
+Exec=gksu wireshark-gtk %f
+Terminal=false
+MimeType=application/vnd.tcpdump.pcap;application/x-pcapng;application/x-snoop;application/x-iptrace;application/x-lanalyzer;application/x-nettl;application/x-radcom;application/x-etherpeek;application/x-visualnetworks;application/x-netinstobserver;application/x-5view;application/x-tektronix-rf5;
+Categories=Network;Monitor;GTK;
+X-XFCE-Source=file:///usr/share/applications/wireshark-gtk.desktop
+Path=
+StartupNotify=false

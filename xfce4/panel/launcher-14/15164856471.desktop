@@ -1,0 +1,21 @@
+[Desktop Entry]
+Name=Thunderbird
+Comment=Send and receive mail with Thunderbird
+GenericName=Mail Client
+Exec=/usr/lib/thunderbird/thunderbird %u
+Terminal=false
+Type=Application
+Icon=thunderbird
+Categories=Network;Email;
+MimeType=message/rfc822;x-scheme-handler/mailto;application/x-xpinstall;
+StartupNotify=true
+Actions=ComposeMessage;OpenAddressBook;
+X-XFCE-Source=file:///usr/share/applications/thunderbird.desktop
+
+[Desktop Action ComposeMessage]
+Name=Write new message
+Exec=/usr/lib/thunderbird/thunderbird -compose
+
+[Desktop Action OpenAddressBook]
+Name=Open address book
+Exec=/usr/lib/thunderbird/thunderbird -addressbook

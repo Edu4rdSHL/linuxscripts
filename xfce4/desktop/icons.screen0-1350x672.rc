@@ -1,0 +1,27 @@
+[xfdesktop-version-4.10.3+-rcfile_format]
+4.10.3+=true
+
+[shm]
+row=4
+col=0
+
+[tmp]
+row=0
+col=1
+
+[Filesystem root]
+row=0
+col=0
+
+[home]
+row=1
+col=0
+
+[/]
+row=2
+col=0
+
+[/home/shl]
+row=3
+col=0
+

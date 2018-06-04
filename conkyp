@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Scrip to start a custom conky configuration with Fluxbox.
+
+sleep 10s
+conky -q -c "/home/shl/.conky/Gotham/Gotham" &
+conky -q -c "/home/shl/.conky/TeejeeTech/CPU Panel (8-core)" &
+conky -q -c "/home/shl/.conky/TeejeeTech/Network Panel" &
+conky -q -c "/home/shl/.conky/TeejeeTech/Process Panel" &
+exit
