@@ -37,7 +37,7 @@
 # V1.9      20 Feb 2008     Fix invalid values reported when PSS is available.
 #                           Reported by Andrey Borzenkov <arvidjaar@mail.ru>
 # V3.11     17 Sep 2017
-#   http://github.com/pixelb/scripts/commits/master/scripts/ps_mem.py
+#   http://gitlab.com/pixelb/scripts/commits/master/scripts/ps_mem.py
 
 # Notes:
 #
@@ -301,7 +301,7 @@ def getCmdName(pid, split_args, discriminate_by_pid):
     try:
         path = os.readlink(path)
         # Some symlink targets were seen to contain NULs on RHEL 5 at least
-        # https://github.com/pixelb/scripts/pull/10, so take string up to NUL
+        # https://gitlab.com/pixelb/scripts/pull/10, so take string up to NUL
         path = path.split('\0')[0]
     except OSError:
         val = sys.exc_info()[1]
