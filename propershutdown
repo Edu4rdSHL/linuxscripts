@@ -1,0 +1,14 @@
+#!/bin/bash
+
+xmessage "Are you sure you want to shut down the computer?" -center -title "Power options" -font "Monospace bold 10" -default "Cancel" -buttons "Cancel":1,"Log out":2,"Reboot":3,"Shut down":4 >/dev/null
+
+case $? in
+1)
+	echo "Exit";;	
+2)
+	openbox --exit;;
+3)
+	systemctl reboot;;
+4)
+	systemctl poweroff;;
+esac
