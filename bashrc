@@ -57,16 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\e[1;33m\]\u@\h \w ->\n\[\e[1;31m\] ➤➤➤➤ ▶\[\e[m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -113,4 +113,26 @@ if ! shopt -oq posix; then
 fi
 
 #own alias
-alias pb='curl -F c=@- https://ptpb.pw/'
+alias pb='curl -F c=@- https://ptpb.pw/?u=1'
+alias ix="curl -F 'f:1=<-' ix.io"
+alias neofetch='neofetch --cpu_cores logical --cpu_temp'
+
+# Editor
+export EDITOR="nvim"
+
+#Ruby DIR
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+
+# Visual
+export VISUAL="nvim"
+
+# Yt to MP3
+alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
+
+# Check permisions
+alias permcheck='stat -c "%A %a %n"'
+
+#Autostart X at login
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
