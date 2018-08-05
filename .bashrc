@@ -135,9 +135,8 @@ alias gitver='echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)'
 # Print SRCINFO in AUR packages
 alias srcinfo='makepkg --printsrcinfo > .SRCINFO'
 
-# Avoid using pip as root/sudo
-alias pip='pip --user'
-alias pip2='pip2 --user'
+# Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
+#install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
 
 ### END OWN ALIAS ###
 
