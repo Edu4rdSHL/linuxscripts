@@ -127,7 +127,7 @@ alias ytmp4="youtube-dl --output '~/Videos/Downloaded/%(title)s.%(ext)s' -f 'mp4
 alias pcheck='stat -c "%A %a %n"'
 
 #Journalctl logs
-alias jlogs='journalctl -r -b -p 3..1'
+alias jlogs='journalctl -b -p 4..1'
 
 # Version for Git packages in AUR
 alias gitver='echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)'
@@ -156,5 +156,5 @@ export VISUAL="nvim"
 
 #Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+  exec sx
 fi
