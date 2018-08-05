@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+scrot -q 100 -ub '%Y-%m-%d-%H%M%S-sechacklabs.jpg' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'
