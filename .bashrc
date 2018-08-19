@@ -135,6 +135,9 @@ alias gitver='echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)'
 # Print SRCINFO in AUR packages
 alias srcinfo='makepkg --printsrcinfo > .SRCINFO'
 
+# See the amount of memory and CPU used by applications
+alias cmcheck='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem|head'
+
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
 
@@ -155,5 +158,5 @@ export VISUAL="nvim"
 
 #Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec sx
+    exec sx
 fi

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu>
+    <menu id="root-menu" label="OpenBox 3">
+        <menu id="1" label="Development">
+            <item label="Burp Suite Free Edition"> <action name="Execute">
+                <execute>burpsuite</execute>
+            </action> </item>
+            <item label="Cutter"> <action name="Execute">
+                <execute>Cutter</execute>
+            </action> </item>
+            <item label="Electron"> <action name="Execute">
+                <execute>electron</execute>
+            </action> </item>
+            <item label="Fluid"> <action name="Execute">
+                <execute>fluid</execute>
+            </action> </item>
+            <item label="GDB"> <action name="Execute">
+                <execute>xterm -e gdb</execute>
+            </action> </item>
+            <item label="Genymotion"> <action name="Execute">
+                <execute>genymotion</execute>
+            </action> </item>
+            <item label="Genymotion Player"> <action name="Execute">
+                <execute>genymotion-player</execute>
+            </action> </item>
+            <item label="OpenJDK 1.7.0 Policy Tool"> <action name="Execute">
+                <execute>/usr/lib/jvm/java-7-openjdk/jre/bin/policytool</execute>
+            </action> </item>
+            <item label="Qt Assistant"> <action name="Execute">
+                <execute>assistant</execute>
+            </action> </item>
+            <item label="Qt Designer"> <action name="Execute">
+                <execute>designer</execute>
+            </action> </item>
+            <item label="Qt Linguist"> <action name="Execute">
+                <execute>linguist</execute>
+            </action> </item>
+            <item label="Qt QDbusViewer"> <action name="Execute">
+                <execute>qdbusviewer</execute>
+            </action> </item>
+            <item label="Sublime Text 3 Dev"> <action name="Execute">
+                <execute>subl3</execute>
+            </action> </item>
+        </menu>
+        <menu id="2" label="Editors">
+            <item label="Emacs"> <action name="Execute">
+                <execute>xterm -e emacs</execute>
+            </action> </item>
+            <item label="GVim"> <action name="Execute">
+                <execute>gvim</execute>
+            </action> </item>
+            <item label="Mousepad"> <action name="Execute">
+                <execute>mousepad</execute>
+            </action> </item>
+            <item label="Nano"> <action name="Execute">
+                <execute>xterm -e nano</execute>
+            </action> </item>
+            <item label="Neovim"> <action name="Execute">
+                <execute>xterm -e nvim</execute>
+            </action> </item>
+            <item label="Neovim"> <action name="Execute">
+                <execute>xterm -e xfce4-terminal -x nvim</execute>
+            </action> </item>
+            <item label="NeovimGtk"> <action name="Execute">
+                <execute>nvim-gtk</execute>
+            </action> </item>
+            <item label="Vi"> <action name="Execute">
+                <execute>xterm -e vi</execute>
+            </action> </item>
+            <item label="Vim"> <action name="Execute">
+                <execute>xterm -e vim</execute>
+            </action> </item>
+            <item label="wxHexEditor"> <action name="Execute">
+                <execute>wxHexEditor</execute>
+            </action> </item>
+        </menu>
+        <menu id="18" label="Games">
+            <menu id="16" label="Strategy">
+                <item label="0 A.D."> <action name="Execute">
+                    <execute>0ad</execute>
+                </action> </item>
+                <item label="UFO: AI Dedicated Server"> <action name="Execute">
+                    <execute>xterm -e ufoded</execute>
+                </action> </item>
+                <item label="UFO: Alien Invasion"> <action name="Execute">
+                    <execute>ufo</execute>
+                </action> </item>
+                <item label="UFO: Alien Invasion (Safe mode)"> <action name="Execute">
+                    <execute>ufo +exec safemode.cfg</execute>
+                </action> </item>
+            </menu>
+        </menu>
+        <menu id="6" label="Graphics">
+            <item label="GNU Image Manipulation Program"> <action name="Execute">
+                <execute>gimp-2.10</execute>
+            </action> </item>
+            <item label="Viewnior"> <action name="Execute">
+                <execute>viewnior</execute>
+            </action> </item>
+            <item label="xgps"> <action name="Execute">
+                <execute>xgps</execute>
+            </action> </item>
+            <item label="xgpsspeed"> <action name="Execute">
+                <execute>xgpsspeed</execute>
+            </action> </item>
+        </menu>
+        <menu id="7" label="Multimedia">
+            <item label="ALSA mixer"> <action name="Execute">
+                <execute>xterm -e alsamixer</execute>
+            </action> </item>
+            <item label="GNOME ALSA Mixer"> <action name="Execute">
+                <execute>gnome-alsamixer</execute>
+            </action> </item>
+            <item label="mpv Media Player"> <action name="Execute">
+                <execute>mpv</execute>
+            </action> </item>
+            <item label="OpenShot Video Editor"> <action name="Execute">
+                <execute>openshot-qt</execute>
+            </action> </item>
+            <item label="PulseAudio Volume Control"> <action name="Execute">
+                <execute>pavucontrol</execute>
+            </action> </item>
+            <item label="Qt V4L2 test Utility"> <action name="Execute">
+                <execute>qv4l2</execute>
+            </action> </item>
+            <item label="SimpleScreenRecorder"> <action name="Execute">
+                <execute>simplescreenrecorder --logfile</execute>
+            </action> </item>
+            <item label="SMPlayer"> <action name="Execute">
+                <execute>smplayer</execute>
+            </action> </item>
+            <item label="SMTube"> <action name="Execute">
+                <execute>smtube</execute>
+            </action> </item>
+            <item label="Volume Icon"> <action name="Execute">
+                <execute>volumeicon</execute>
+            </action> </item>
+        </menu>
+        <menu id="5" label="Network">
+            <item label="AnyDesk"> <action name="Execute">
+                <execute>anydesk</execute>
+            </action> </item>
+            <item label="Avahi SSH Server Browser"> <action name="Execute">
+                <execute>bssh</execute>
+            </action> </item>
+            <item label="Avahi VNC Server Browser"> <action name="Execute">
+                <execute>bvnc</execute>
+            </action> </item>
+            <item label="FileZilla"> <action name="Execute">
+                <execute>filezilla</execute>
+            </action> </item>
+            <item label="FireFox"> <action name="Execute">
+                <execute>firefox</execute>
+            </action> </item>
+            <item label="FTP"> <action name="Execute">
+                <execute>xterm -e ftp</execute>
+            </action> </item>
+            <item label="Mail"> <action name="Execute">
+                <execute>xterm -e mail</execute>
+            </action> </item>
+            <item label="Pidgin Internet Messenger"> <action name="Execute">
+                <execute>pidgin</execute>
+            </action> </item>
+            <item label="qBittorrent"> <action name="Execute">
+                <execute>qbittorrent</execute>
+            </action> </item>
+            <item label="Remote Desktop Viewer"> <action name="Execute">
+                <execute>vinagre</execute>
+            </action> </item>
+            <item label="Signal"> <action name="Execute">
+                <execute>signal-desktop</execute>
+            </action> </item>
+            <item label="Signal (Tray)"> <action name="Execute">
+                <execute>signal-desktop --start-in-tray</execute>
+            </action> </item>
+            <item label="Talk"> <action name="Execute">
+                <execute>xterm -e talk</execute>
+            </action> </item>
+            <item label="Telegram Desktop"> <action name="Execute">
+                <execute>telegram-desktop</execute>
+            </action> </item>
+            <item label="Telnet"> <action name="Execute">
+                <execute>xterm -e telnet</execute>
+            </action> </item>
+            <item label="Thunderbird"> <action name="Execute">
+                <execute>thunderbird</execute>
+            </action> </item>
+            <item label="TigerVNC Viewer"> <action name="Execute">
+                <execute>vncviewer</execute>
+            </action> </item>
+            <item label="Tor Browser (en-US)"> <action name="Execute">
+                <execute>tor-browser-en</execute>
+            </action> </item>
+            <item label="Wireshark (GTK+)"> <action name="Execute">
+                <execute>wireshark-gtk</execute>
+            </action> </item>
+            <item label="Zenmap"> <action name="Execute">
+                <execute>zenmap</execute>
+            </action> </item>
+            <item label="Zenmap (as root)"> <action name="Execute">
+                <execute>/usr/share/zenmap/su-to-zenmap.sh</execute>
+            </action> </item>
+        </menu>
+        <menu id="3" label="Office">
+            <item label="LibreOffice Impress"> <action name="Execute">
+                <execute>libreoffice</execute>
+            </action> </item>
+            <item label="llpp"> <action name="Execute">
+                <execute>llpp</execute>
+            </action> </item>
+        </menu>
+        <menu id="19" label="Shells">
+            <item label="File Manager PCManFM"> <action name="Execute">
+                <execute>pcmanfm</execute>
+            </action> </item>
+            <item label="GIT"> <action name="Execute">
+                <execute>xterm -e git</execute>
+            </action> </item>
+            <item label="Oracle VM VirtualBox"> <action name="Execute">
+                <execute>VirtualBox</execute>
+            </action> </item>
+            <item label="UXTerm"> <action name="Execute">
+                <execute>uxterm</execute>
+            </action> </item>
+            <item label="Xfce Terminal"> <action name="Execute">
+                <execute>xfce4-terminal</execute>
+            </action> </item>
+            <item label="Xterm"> <action name="Execute">
+                <execute>xterm</execute>
+            </action> </item>
+        </menu>
+        <menu id="37" label="System">
+            <menu id="36" label="Settings">
+                <menu id="21" label="GNOME">
+                    <item label="Firewall Configuration"> <action name="Execute">
+                        <execute>gufw</execute>
+                    </action> </item>
+                </menu>
+                <menu id="35" label="Xfce">
+                    <item label="Screensaver"> <action name="Execute">
+                        <execute>xscreensaver-demo</execute>
+                    </action> </item>
+                </menu>
+                <item label="Customize Look and Feel"> <action name="Execute">
+                    <execute>lxappearance</execute>
+                </action> </item>
+                <item label="Desktop Preferences"> <action name="Execute">
+                    <execute>pcmanfm --desktop-pref</execute>
+                </action> </item>
+                <item label="Notifications"> <action name="Execute">
+                    <execute>xfce4-notifyd-config</execute>
+                </action> </item>
+                <item label="Openbox Configuration Manager"> <action name="Execute">
+                    <execute>obconf</execute>
+                </action> </item>
+                <item label="Openbox Key bindings"> <action name="Execute">
+                    <execute>obkey</execute>
+                </action> </item>
+                <item label="Openbox Menu Editor"> <action name="Execute">
+                    <execute>obmenu3</execute>
+                </action> </item>
+                <item label="Preferred Applications"> <action name="Execute">
+                    <execute>libfm-pref-apps</execute>
+                </action> </item>
+                <item label="Tint2 Settings"> <action name="Execute">
+                    <execute>tint2conf</execute>
+                </action> </item>
+                <item label="Xfce Terminal"> <action name="Execute">
+                    <execute>xfce4-terminal --preferences</execute>
+                </action> </item>
+            </menu>
+            <item label="Android File Transfer (MTP)"> <action name="Execute">
+                <execute>android-file-transfer</execute>
+            </action> </item>
+            <item label="Avahi Zeroconf Browser"> <action name="Execute">
+                <execute>avahi-discover</execute>
+            </action> </item>
+            <item label="BleachBit"> <action name="Execute">
+                <execute>bleachbit</execute>
+            </action> </item>
+            <item label="GParted"> <action name="Execute">
+                <execute>gparted</execute>
+            </action> </item>
+            <item label="Hardware Locality lstopo"> <action name="Execute">
+                <execute>lstopo</execute>
+            </action> </item>
+            <item label="Htop"> <action name="Execute">
+                <execute>xterm -e htop</execute>
+            </action> </item>
+            <item label="MAT"> <action name="Execute">
+                <execute>mat-gui</execute>
+            </action> </item>
+            <item label="Tint2"> <action name="Execute">
+                <execute>tint2</execute>
+            </action> </item>
+        </menu>
+        <menu id="38" label="Utilities">
+            <item label="About Xfce"> <action name="Execute">
+                <execute>xfce4-about</execute>
+            </action> </item>
+            <item label="Parcellite"> <action name="Execute">
+                <execute>parcellite</execute>
+            </action> </item>
+            <item label="Xarchiver"> <action name="Execute">
+                <execute>xarchiver</execute>
+            </action> </item>
+        </menu>
+        <separator/>
+        <menu id="40" label="OpenBox">
+            <menu id="client-list-menu"/>
+            <item label="Reconfigure"> <action name="Reconfigure"/> </item>
+            <separator/>
+            <item label="Exit"> <action name="Exit"/> </item>
+        </menu>
+    </menu>
+</openbox_menu>
