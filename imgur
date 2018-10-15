@@ -1,0 +1,108 @@
+#!/bin/sh
+#
+# upload or delete images on imgur.com
+
+CLIENT_ID='' # you can get your client ID in https://api.imgur.com/oauth2/addclient
+DEL_HASH=''
+RES=''
+SUCCESS=0
+FAILURE=1
+
+
+screen_shot()
+{
+  IMG=$(mktemp /tmp/tmp.XXXXXX)
+  IMG="${IMG}"."png"
+
+  scrot -s -z ${IMG} >/dev/null 2>&1
+
+  return $SUCCESS
+}
+
+
+upload_img()
+{
+  RES=`curl -sH "Authorization: Client-ID ${CLIENT_ID}" -F "image=@${IMG}" \
+    "https://api.imgur.com/3/upload"`
+
+  return $SUCCESS
+}
+
+
+print_img_link()
+{
+  if echo "${RES}" | grep -qo '"status":200'
+  then
+    # url
+    printf "url: " ; echo ${RES} |
+    sed -e 's/.*"link":"\([^"]*\).*/\1/;s/\\//g'
+
+    # delete hash
+    printf "delete hash: " ; echo ${RES} |
+    sed -e 's/.*"deletehash":"\([^"]*\).*/\1/;s/\\//g'
+  fi
+
+  #rm ${IMG}
+
+  return $SUCCESS
+}
+
+
+delete_img()
+{
+  RES=$(curl -X DELETE -sH "Authorization: Client-ID ${CLIENT_ID}" \
+    "https://api.imgur.com/3/image/${DEL_HASH}")
+
+  if echo "${RES}" | grep -qo '"status":200'
+  then
+    echo "[+] successfull"
+  else
+    echo "[-] ERROR: deleting image"
+    exit $FAILURE
+  fi
+
+  echo ${RES}
+
+  return $SUCCESS
+}
+
+
+usage()
+{
+  if [ $1 -lt 1 -o $1 -gt 2 ]
+  then
+    echo "[+] usage: imgur.sh up [file] | del <hash>"
+    exit 1
+  fi
+
+  return 0
+}
+
+
+main()
+{
+  usage $#
+
+  if [ "${1}" = "up" ]
+  then
+    if [ ! "${2}" ]
+    then
+      screen_shot
+    else
+      IMG="${2}"
+    fi
+    upload_img
+    print_img_link
+  elif [ "${1}" = "del" ]
+  then
+    DEL_HASH="${2}"
+    delete_img
+  else
+    echo "[-] ERROR: unknown option"
+  fi
+
+  return $SUCCESS
+}
+
+
+main "${@}"
