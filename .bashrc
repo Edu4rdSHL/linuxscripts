@@ -84,7 +84,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -l'
-alias la='ls -A'
+alias la='ls -la'
 alias l='ls -CF'
 
 # Alias definitions.
@@ -109,11 +109,15 @@ fi
 
 ### OWN ALIAS ###
 
+#Alias to get PKGBUILDs from Official repos
+#alias getpkgbuild="curl https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/"
+
 #Pastes
-alias pb='curl -F c=@- https://ptpb.pw/?u=1'
+#alias pb='curl -F c=@- https://ptpb.pw/?u=1'
 alias ix="curl -F 'f:1=<-' ix.io"
 
 #Neofetch
+#alias neofetch='cat neof'
 alias neofetch='neofetch --cpu_cores logical --cpu_temp'
 
 #Temperature
@@ -129,14 +133,23 @@ alias pcheck='stat -c "%A %a %n"'
 #Journalctl logs
 alias jlogs='journalctl -b -p 4..1'
 
-# Version for Git packages in AUR
+# Version for Git packages
 alias gitver='echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)'
+
+# Version for Git packages with tags
+alias gitag="git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'"
+
+# Alias to get sha512sums
+alias ssums='sha512sum'
 
 # Print SRCINFO in AUR packages
 alias srcinfo='makepkg --printsrcinfo > .SRCINFO'
 
 # See the amount of memory and CPU used by applications
 alias cmcheck='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem|head'
+
+# Alias for git pull --rebase to prevent merging branchs
+alias gpr='git pull --rebase'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
@@ -149,7 +162,7 @@ alias cmcheck='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem|head'
 export EDITOR="nvim"
 
 #Ruby DIR
-PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin"
 
 # Visual
 export VISUAL="nvim"
@@ -160,3 +173,7 @@ export VISUAL="nvim"
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     exec sx
 fi
+
+
+
+export EXPOSE_PATH="/tmp/makepkg/expose/src/ExpoSE/"; export PATH=$PATH:$EXPOSE_PATH #EXPOSE_ENTRY
