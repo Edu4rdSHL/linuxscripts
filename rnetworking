@@ -7,7 +7,7 @@
 
 # Define variables
 ofile=/tmp/google.txt
-services='wpa_supplicant wpa_supplicant@wlp0s20f0u2 wpa_supplicant@wlp3s0 systemd-networkd systemd-resolved tor'
+services='write here the name of the services separated by spaces, example: systemd-networkd systemd-resolved wicd network-manager'
 
 #Check if wget is installed
 if command -v wget $> /dev/null; then
