@@ -1,0 +1,32 @@
+#!/bin/sh
+# Script to check your internet connection and if it's not OK
+# then restart your network services. Make sure that you've the appropiates
+# service names in the $services variable
+#
+# Autor: Eduard Toloza
+
+# Define variables
+ofile=/tmp/google.txt
+services='wpa_supplicant wpa_supplicant@wlp0s20f0u2 wpa_supplicant@wlp3s0 systemd-networkd systemd-resolved tor'
+
+#Check if wget is installed
+if command -v wget $> /dev/null; then
+  # Check internet connection and if not OK then restart all networking services
+  echo "Testing your connection..."
+  wget -q --tries=1 --timeout=1 https://google.com -O $ofile &> /dev/null
+  if [ ! -s /tmp/google.txt ]; then
+    echo "Your connection is not working, restarting your network services: $services"
+    sudo systemctl restart $services
+    if [ $? -eq 0 ]; then
+      echo "Services restarted sucessfully, leaving."
+    else
+      echo "An error has occurred, make sure that service names are correct."
+    fi
+    rm $ofile
+  else
+    echo "Your connection is OK"
+    rm $ofile
+  fi
+else
+  echo "wget is not installed, aborting."
+fi
