@@ -10,7 +10,7 @@ ofile=/tmp/google.txt
 services='write here the name of the services separated by spaces, example: systemd-networkd systemd-resolved wicd network-manager'
 
 #Check if wget is installed
-if command -v wget $> /dev/null; then
+if command -v wget > /dev/null; then
   # Check internet connection and if not OK then restart all networking services
   echo "Testing your connection..."
   wget -q --tries=1 --timeout=1 https://google.com -O $ofile &> /dev/null
