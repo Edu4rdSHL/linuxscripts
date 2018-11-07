@@ -1,5 +1,5 @@
 [Unit]
- Description=Comprobación automatica de servicios de red cada 3 minutos
+ Description=Automatically check internet services every 3 minutes
 [Timer]
  OnBootSec=3min
  OnUnitActiveSec=3min
