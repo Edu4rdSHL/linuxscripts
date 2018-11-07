@@ -1,0 +1,9 @@
+[Unit]
+ Description=Comprobación automatica de servicios de red cada 3 minutos
+[Timer]
+ OnBootSec=3min
+ OnUnitActiveSec=3min
+ Unit=rnetworking.service
+
+[Install]
+ WantedBy=multi-user.target

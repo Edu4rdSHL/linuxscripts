@@ -1,0 +1,11 @@
+[Unit]
+Description=Firefox profile memory cache
+ 
+[Install]
+WantedBy=default.target
+ 
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/sechacklabs/.local/bin/firefox-sync %i
+ExecStop=/home/sechacklabs/.local/bin/firefox-sync %i
