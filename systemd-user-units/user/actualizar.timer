@@ -1,0 +1,9 @@
+[Unit]
+ Description=Automatically update ArchLinux. 5 minutes before the system boot the first check is done, then it look for updates every 60 minutes
+[Timer]
+ OnBootSec=5min
+ OnUnitActiveSec=60min
+ Unit=actualizar.service
+
+[Install]
+ WantedBy=multi-user.target
