@@ -151,6 +151,18 @@ alias cmcheck='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem|head'
 # Alias for git pull --rebase to prevent merging branchs
 alias gpr='git pull --rebase'
 
+# Alias for git clone
+alias gclone='git clone'
+
+# Alias for git push
+alias gpush='git push'
+
+# Alias to kill Signal Private Messenger when crashed
+alias ksignal='killall -9 signal-desktop'
+
+# Alias to see the actual CPU frequency
+alias cpufreq='watch grep \"cpu MHz\" /proc/cpuinfo'
+
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
 
@@ -173,7 +185,3 @@ export VISUAL="nvim"
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     exec sx
 fi
-
-
-
-export EXPOSE_PATH="/tmp/makepkg/expose/src/ExpoSE/"; export PATH=$PATH:$EXPOSE_PATH #EXPOSE_ENTRY
