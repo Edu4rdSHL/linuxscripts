@@ -71,7 +71,7 @@ usage()
 {
   if [ $1 -lt 1 -o $1 -gt 2 ]
   then
-    echo "[+] usage: imgur.sh up [file] | del <hash>"
+    echo "[+] usage: tsshot.sh up [file] | del <hash>"
     exit 1
   fi
 
