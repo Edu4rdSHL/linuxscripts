@@ -109,15 +109,11 @@ fi
 
 ### OWN ALIAS ###
 
-#Alias to get PKGBUILDs from Official repos
-#alias getpkgbuild="curl https://git.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/"
-
 #Pastes
-#alias pb='curl -F c=@- https://ptpb.pw/?u=1'
+alias pb='curl -F c=@- https://ptpb.pw/?u=1'
 alias ix="curl -F 'f:1=<-' ix.io"
 
 #Neofetch
-#alias neofetch='cat neof'
 alias neofetch='neofetch --cpu_cores logical --cpu_temp'
 
 #Temperature
