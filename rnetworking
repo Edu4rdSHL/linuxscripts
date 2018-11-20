@@ -14,7 +14,7 @@ if command -v wget > /dev/null; then
   # Check internet connection and if not OK then restart all networking services
   echo "Testing your connection..."
   wget -q --tries=1 --timeout=1 https://google.com -O $ofile &> /dev/null
-  if [ ! -s /tmp/google.txt ]; then
+  if [ ! -s $ofile ]; then
     echo "Your connection is not working, restarting your network services: $services"
     sudo systemctl restart $services
     if [ $? -eq 0 ]; then
