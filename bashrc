@@ -110,14 +110,15 @@ fi
 ### OWN ALIAS ###
 
 #Pastes
-alias pb='curl -F c=@- https://ptpb.pw/?u=1'
+#alias pb='curl -F c=@- https://ptpb.pw/?u=1'
 alias ix="curl -F 'f:1=<-' ix.io"
 
 #Neofetch
+#alias neofetch='cat neof'
 alias neofetch='neofetch --cpu_cores logical --cpu_temp'
 
 #Temperature
-alias clima='curl wttr.in/bucaramanga?lang=es'
+alias clima='curl wttr.in/bogota?lang=es'
 
 # Youtube to MP3 and MP4
 alias ytmp3="youtube-dl --output '~/Music/Downloaded/%(title)s.%(ext)s' --extract-audio --audio-format mp3"
@@ -158,6 +159,9 @@ alias ksignal='killall -9 signal-desktop'
 
 # Alias to see the actual CPU frequency
 alias cpufreq='watch grep \"cpu MHz\" /proc/cpuinfo'
+
+# Alias to check what is my actual system IP using curl
+alias wtfip='curl ifconfig.co'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
