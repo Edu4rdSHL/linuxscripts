@@ -161,7 +161,7 @@ alias ksignal='killall -9 signal-desktop'
 alias cpufreq='watch grep \"cpu MHz\" /proc/cpuinfo'
 
 # Alias to check what is my actual system IP using curl
-alias wtfip='curl ifconfig.co'
+alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
