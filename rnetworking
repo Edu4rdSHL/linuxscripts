@@ -6,15 +6,13 @@
 # Autor: Eduard Toloza
 
 # Define variables
-ofile=/tmp/google.txt
-services='write here the name of the services separated by spaces, example: systemd-networkd systemd-resolved wicd network-manager'
+services='Put here the service names that you want to restart if internet connection is not available, the services must be sepparated by spaces. Example: systemd-resolved systemd-networkd openvpn'
 
-#Check if wget is installed
-if command -v wget > /dev/null; then
+#Check if ping command is available
+if command -v ping > /dev/null; then
   # Check internet connection and if not OK then restart all networking services
   echo "Testing your connection..."
-  wget -q --tries=1 --timeout=1 https://google.com -O $ofile &> /dev/null
-  if [ ! -s $ofile ]; then
+  if ! ping -q -c 1 -W 1 1.1.1.1 > /dev/null; then
     echo "Your connection is not working, restarting your network services: $services"
     sudo systemctl restart $services
     if [ $? -eq 0 ]; then
@@ -22,11 +20,9 @@ if command -v wget > /dev/null; then
     else
       echo "An error has occurred, make sure that service names are correct."
     fi
-    rm $ofile
   else
     echo "Your connection is OK"
-    rm $ofile
   fi
 else
-  echo "wget is not installed, aborting."
+  echo "ping command is not available, aborting."
 fi
