@@ -120,9 +120,9 @@ alias neofetch='neofetch --cpu_cores logical --cpu_temp'
 #Temperature
 alias clima='curl wttr.in/bogota?lang=es'
 
-# Youtube to MP3 and MP4
+# Youtube to MP3 and webistes videos to MP4
 alias ytmp3="youtube-dl --output '~/Music/Downloaded/%(title)s.%(ext)s' --extract-audio --audio-format mp3"
-alias ytmp4="youtube-dl --output '~/Videos/Downloaded/%(title)s.%(ext)s' -f 'mp4'"
+alias vidtomp4="youtube-dl --output '~/Videos/Downloaded/%(title)s.%(ext)s' -f 'mp4'"
 
 # Check permisions
 alias pcheck='stat -c "%A %a %n"'
@@ -183,5 +183,5 @@ export VISUAL="nvim"
 
 #Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    exec sx
+  exec sx
 fi
