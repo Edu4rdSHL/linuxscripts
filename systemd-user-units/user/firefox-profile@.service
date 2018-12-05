@@ -7,5 +7,5 @@ WantedBy=default.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/home/sechacklabs/.local/bin/firefox-sync %i
-ExecStop=/home/sechacklabs/.local/bin/firefox-sync %i
+ExecStart=/home/YourUsername/.local/bin/firefox-sync %i
+ExecStop=/home/YourUsername/.local/bin/firefox-sync %i
