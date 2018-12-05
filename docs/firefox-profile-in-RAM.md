@@ -74,7 +74,7 @@ $ systemctl --user daemon-reload
 $ systemctl --user enable firefox-profile@<profile>.service
 $ systemctl --user start firefox-profile@<profile>.service 
 ```
-No olvide reemplazar <profile> con el nombre de su perfil, en nuestro caso xyz.default.
+No olvide reemplazar `<profile>` con el nombre de su perfil, en nuestro caso xyz.default.
 
 **Mediante CRON**
 
