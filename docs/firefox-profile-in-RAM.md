@@ -59,6 +59,26 @@ En nuestro caso que el perfil se llama xyz.default, se ejecutaría este comando:
 $ ~/.local/bin/firefox-sync xyz.default
 ```
 
+# Caché en RAM
+
+Para colocar nuestra caché en la memoria RAM solo hace falta modificar unas pocas cosas dentro de about:config en Firefox, sigue estos pasos:
+
+1. Ingresa en la barra de búsqueda esto: about:config, luego das en aceptar los riesgos.
+2. Buscar el parámetro `browser.cache.disk.enable` y lo cambias a **false**.
+3. Buscas el parámetro `browser.cache.memory.enable` y lo cambias a **true**.
+4. Creas un nuevo registro del tipo **integer** con el parámetro `browser.cache.memory.capacity` y le asignas un valor de **-1**, de este modo Firefox se encargará de asignar de manera automática la caché en RAM usando estos parámetros:
+
+Memoria RAM Física  Memoria Cache (en KB)
+32 MB               2048
+64 MB               4096
+128 MB              6144
+256 MB              10240
+512 MB              14336
+1 GB                18432
+2 GB                24576
+4 GB                30720
+8 GB y más          32768
+
 # **Automatizando la tarea:**
 
 **Mediante systemD**
