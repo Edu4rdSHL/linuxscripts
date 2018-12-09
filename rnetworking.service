@@ -3,8 +3,8 @@
  After=network-online.target
 
 [Service]
- Type=simple
- ExecStart=/home/sechacklabs/.local/bin/rnetworking
+ Type=oneshot
+ ExecStart=/usr/bin/rnetworking
  TimeoutStopSec=180
  KillMode=process
  KillSignal=SIGINT
