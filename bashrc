@@ -154,6 +154,9 @@ alias gclone='git clone'
 # Alias for git push
 alias gpush='git push'
 
+# Alias for git pull
+alias gpull='git pull'
+
 # Alias to kill Signal Private Messenger when crashed
 alias ksignal='killall -9 signal-desktop'
 

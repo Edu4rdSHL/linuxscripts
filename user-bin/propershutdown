@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xmessage "Are you sure you want to shut down the computer?" -center -title "Power options" -font "Monospace bold 10" -default "Cancel" -buttons "Cancel":1,"Log out":2,"Reboot":3,"Shut down":4 >/dev/null
+xmessage "Are you sure you want to shut down the computer?" -center -title "Power options" -font "Monospace bold 10" -default "Cancel" -buttons "Cancel":1,"Log out":2,"Reboot":3,"Shut down":4,"Hibernate":5 >/dev/null
 
 case $? in
 1)
@@ -11,4 +11,6 @@ case $? in
 	systemctl reboot;;
 4)
 	systemctl poweroff;;
+5)  
+	systemctl hibernate;;
 esac
