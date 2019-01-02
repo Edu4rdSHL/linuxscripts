@@ -3,9 +3,9 @@ Name=enp2s0
 
 [Network]
 DHCP=ipv4
-DNS=9.9.9.9
+DNS=1.1.1.1
 DNSOverTLS=opportunistic
-DNSSEC=yes
+DNSSEC=true
 
 [DHCP]
 RouteMetric=10
