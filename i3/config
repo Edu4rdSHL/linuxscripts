@@ -49,7 +49,7 @@ exec feh --bg-center /home/sechacklabs/Pictures/SHL/sechacklabs-wallpaper-red.jp
 bindsym $mod+Return exec xfce4-terminal
 
 # Screen lock
-bindsym $mod+l exec "i3lock -i /home/sechacklabs/Pictures/SHL/sechacklabs-blue.png -e"
+bindsym $mod+l exec "i3lock -e -i /home/sechacklabs/Pictures/SHL/sechacklabs-blue.png"
 
 # Gajim XMPP client
 bindsym $mod+x exec gajim
@@ -59,9 +59,6 @@ bindsym $mod+F3 exec Thunar
 
 # Firefox
 bindsym $mod+f exec firefox
-
-# Signal Desktop
-bindsym $mod+s exec signal-desktop
 
 # SMPlayer
 bindsym $mod+p exec smplayer
@@ -129,7 +126,7 @@ bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+#bindsym $mod+Control+w layout tabbed
 #bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
