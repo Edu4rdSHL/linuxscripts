@@ -3,14 +3,29 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Declare the list of plugins.
 Plug 'morhetz/gruvbox'
+" Plug 'Badacadabra/vim-archery'
+Plug 'Yggdroot/indentLine'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+Plug 'zchee/deoplete-jedi'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
 syntax on
-set guifont=Monospace\ Bold\ 12 
+set guifont=Monospace\ Bold\ 12
 colors gruvbox
 set background=dark
+set inccommand=nosplit
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -28,8 +43,8 @@ set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
 set expandtab           " Insert spaces when TAB is pressed.
-set tabstop=4           " Render TABs using this many spaces.
-set shiftwidth=4        " Indentation amount for < and > commands.
+set tabstop=2           " Render TABs using this many spaces.
+set shiftwidth=2        " Indentation amount for < and > commands.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 
 " More natural splits
