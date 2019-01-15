@@ -52,7 +52,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[1;33m\]\u@\h \w ->\n\[\e[1;31m\] ➤➤ $\[\e[m\] '
+    PS1='\[\e[1;31m\]\u@\h \w ->\n\[\e[1;31m\] ➤➤ $\[\e[m\] '
 else
     PS1='\u@\h:\w\$ '
 fi
@@ -165,6 +165,10 @@ alias cpufreq='watch grep \"cpu MHz\" /proc/cpuinfo'
 
 # Alias to check what is my actual system IP using curl
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+# Alias to connect to ssh machines
+alias assh='ssh vagrant@192.168.1.150'
+alias bassh='ssh edu4rdshl@192.168.1.100'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
