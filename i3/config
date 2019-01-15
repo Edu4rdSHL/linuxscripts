@@ -55,7 +55,7 @@ bindsym $mod+l exec "i3lock -e -i /home/sechacklabs/Pictures/SHL/sechacklabs-blu
 bindsym $mod+x exec gajim
 
 # Thunar file manager
-bindsym $mod+F3 exec Thunar
+bindsym $mod+F3 exec pcmanfm
 
 # Firefox
 bindsym $mod+f exec firefox
