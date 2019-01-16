@@ -25,7 +25,6 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 ColorForeground=#20204a4a8787
-BackgroundImageFile=/home/shl/Pictures/Images/archlinux.png
 BackgroundImageShading=0.550000
 BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_STRETCHED
 ScrollingOnOutput=FALSE
