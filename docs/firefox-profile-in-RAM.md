@@ -24,6 +24,7 @@ Luego haga una copia de seguridad de su perfil con:
 $ tar zcvfp ~/firefox_profile_backup.tar.gz ~/.mozilla/firefox/xyz.default
 ```
 
+Finalmente instale [rsync](https://rsync.samba.org) en su equipo.
 
 # **El script que coloca el perfil de Firefox en RAM:**
 
