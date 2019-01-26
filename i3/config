@@ -38,7 +38,6 @@ focus_follows_mouse no
 ##### Programs to run at startup #####
 exec cbatticon
 exec parcellite
-exec /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec feh --bg-center /home/sechacklabs/Pictures/SHL/sechacklabs-wallpaper-red.jpg
 
 ##### End of programs to run at startup #####
