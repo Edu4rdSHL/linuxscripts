@@ -170,6 +170,9 @@ alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias assh='ssh vagrant@192.168.1.150'
 alias bassh='ssh edu4rdshl@192.168.1.100'
 
+# Alias to start VirtualBox Machines in Headless mode
+alias vbstart='VBoxHeadless -s'
+
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
 
@@ -180,15 +183,15 @@ alias bassh='ssh edu4rdshl@192.168.1.100'
 # Editor
 export EDITOR="nvim"
 
-#Ruby DIR
-PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin"
-
 # Visual
 export VISUAL="nvim"
+
+#Ruby DIR
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 
 ### END OF SOME LOCAL VARIABBLES ###
 
 #Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec sx
+  exec startx
 fi
