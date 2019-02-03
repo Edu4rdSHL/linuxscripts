@@ -6,7 +6,7 @@ case $? in
 1)
 	echo "Exit";;	
 2)
-	openbox --exit;;
+	i3-msg exit;;
 3)
 	systemctl reboot;;
 4)
