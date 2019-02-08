@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+fshared="/mnt/Shared/bapkgs"
+
+if [ -z "$*" ]; then
+  cd "$fshared"
+  pkgs=$(ls *.pkg.tar.xz)
+  sudo pacman -U $pkgs
+fi
