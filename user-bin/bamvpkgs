@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+fshared="/mnt/Shared/bapkgs"
+
+if [ -z "$*" ]; then
+  for file in $(ls *.pkg.tar.xz); do $(sudo mv "$file" "$fshared"); done
+  exit
+else
+  for file in "${@:1}"; do $(sudo mv "$file" "$fshared"); done
+fi
