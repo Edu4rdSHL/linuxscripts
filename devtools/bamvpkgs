@@ -2,6 +2,7 @@
 
 fshared="/mnt/Shared/bapkgs"
 
+rm -f "$fshared"/*
 if [ -z "$*" ]; then
   for file in $(ls *.pkg.tar.xz); do $(sudo mv "$file" "$fshared"); done
   exit
