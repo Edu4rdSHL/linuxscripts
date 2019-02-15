@@ -14,16 +14,16 @@ TLP_DEFAULT_MODE=AC
 
 # Operation mode select: 0=depend on power source, 1=always use TLP_DEFAULT_MODE
 # Hint: use in conjunction with TLP_DEFAULT_MODE=BAT for BAT settings on AC.
-TLP_PERSISTENT_DEFAULT=0
+TLP_PERSISTENT_DEFAULT=1
 
 # Seconds laptop mode has to wait after the disk goes idle before doing a sync.
 # Non-zero value enables, zero disables laptop mode.
 DISK_IDLE_SECS_ON_AC=0
-DISK_IDLE_SECS_ON_BAT=2
+DISK_IDLE_SECS_ON_BAT=0
 
 # Dirty page values (timeouts in secs).
 MAX_LOST_WORK_SECS_ON_AC=15
-MAX_LOST_WORK_SECS_ON_BAT=60
+MAX_LOST_WORK_SECS_ON_BAT=15
 
 # Hint: CPU parameters below are disabled by default, remove the leading #
 # to enable them, otherwise kernel default values are used.
@@ -73,8 +73,8 @@ CPU_HWP_ON_BAT=performance
 # Important:
 # - This may conflict with your distribution's governor settings
 # - A value of 1 does *not* activate boosting, it just allows it
-CPU_BOOST_ON_AC=1
-CPU_BOOST_ON_BAT=1
+CPU_BOOST_ON_AC=0
+CPU_BOOST_ON_BAT=0
 
 # Minimize number of used CPU cores/hyper-threads under light load conditions:
 #   0=disable, 1=enable.
