@@ -36,9 +36,10 @@ workspace_layout tabbed
 focus_follows_mouse no
 
 ##### Programs to run at startup #####
-exec cbatticon
+# exec cbatticon
 exec parcellite
 exec feh --bg-center /home/sechacklabs/Pictures/SHL/sechacklabs-wallpaper-red.jpg
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ##### End of programs to run at startup #####
 
@@ -51,20 +52,23 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+l exec "i3lock -e -i /home/sechacklabs/Pictures/SHL/sechacklabs-blue.png"
 
 # Gajim XMPP client
-bindsym $mod+x exec gajim
+bindsym $mod+x exec dino
 
-# Thunar file manager
+# File manager
 bindsym $mod+F3 exec pcmanfm
 
 # Firefox
 bindsym $mod+f exec firefox
 
 # SMPlayer
-bindsym $mod+p exec smplayer
+bindsym $mod+p exec vlc
+
+# Signal Desktop
+bindsym $mod+s exec signal-desktop
 
 # Take screenshots
-bindsym Print exec "scrot -q 100 -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
-bindsym $mod+Print exec "scrot -q 100 -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
+bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
+bindsym $mod+Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
 
 # Monitor brigthness
 bindcode 233 exec xbacklight -inc 5
