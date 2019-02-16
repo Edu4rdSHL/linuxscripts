@@ -47,7 +47,7 @@ load {
 path_exists VPN {
         # path exists when a VPN tunnel launched by nmcli/nm-applet is active
         format = "VPN: active"
-        format_down= "W: VPN inactive"
+        format_down= "VPN inactive"
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
 # disk "/" {
