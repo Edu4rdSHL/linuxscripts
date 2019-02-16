@@ -113,10 +113,6 @@ fi
 #alias pb='curl -F c=@- https://ptpb.pw/?u=1'
 alias ix="curl -F 'f:1=<-' ix.io"
 
-#Neofetch
-#alias neofetch='cat neof'
-alias neofetch='neofetch --cpu_cores logical --cpu_temp'
-
 #Temperature
 alias clima='curl wttr.in/bogota?lang=es'
 
@@ -161,17 +157,22 @@ alias gpull='git pull'
 alias ksignal='killall -9 signal-desktop'
 
 # Alias to see the actual CPU frequency
-alias cpufreq='watch grep \"cpu MHz\" /proc/cpuinfo'
+alias cpufreq='watch -n 0.5 grep \"cpu MHz\" /proc/cpuinfo'
+alias cputemp='watch -n 0.5 sensors'
 
 # Alias to check what is my actual system IP using curl
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Alias to connect to ssh machines
-alias assh='ssh vagrant@192.168.1.150'
-alias bassh='ssh edu4rdshl@192.168.1.100'
+alias assh='ssh vagrant@192.168.122.228'
+alias bassh='ssh edu4rdshl@192.168.122.230'
 
 # Alias to start VirtualBox Machines in Headless mode
-alias vbstart='VBoxHeadless -s'
+# alias vbstart='VBoxHeadless -s'
+
+# Find the largest top 20 files and dirs in actual linux dir
+alias longdirs='du -a ./ | sort -n -r | head -n 20'
+alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
@@ -186,12 +187,15 @@ export EDITOR="nvim"
 # Visual
 export VISUAL="nvim"
 
-#Ruby DIR
+# Video Acceleration
+export LIBVA_DRIVER_NAME="iHD"
+
+# Fix DIR
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
 
 ### END OF SOME LOCAL VARIABBLES ###
 
-#Autostart X at login
+# Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
