@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+# Script to select a random VPN client from /etc/openvpn/client/ (the default openvpn directory)
+
+workdir="/etc/openvpn/client/"
+
+if [ $UID -ne 0 ]; then
+  echo "You need root privileges."
+  exit
+fi
+
+if [ "$1" == "stop" ]; then
+  systemctl stop openvpn-client@*
+  exit
+fi
+
+if command -v openvpn > /dev/null && command -v systemctl > /dev/null; then
+  cd "$workdir"
+  vpn=$(shuf -ezn 1 * | xargs -0 -n1 | cut -f1 -d '.')
+  $(sudo systemctl start openvpn-client@$vpn)
+  exit
+else
+  echo "OpenVPN or systemd not installed, exiting."
+  exit
+fi
