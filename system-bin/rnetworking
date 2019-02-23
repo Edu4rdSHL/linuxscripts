@@ -12,7 +12,7 @@ services='Put here the service names that you want to restart if internet connec
 if command -v ping > /dev/null; then
   # Check internet connection and if not OK then restart all networking services
   echo "Testing your connection..."
-  if ! ping -q -c 1 -W 1 1.1.1.1 > /dev/null; then
+  if ! ping -q -c 1 -W 1 9.9.9.9 > /dev/null; then
     echo "Your connection is not working, restarting your network services: $services"
     sudo systemctl restart $services
     if [ $? -eq 0 ]; then
