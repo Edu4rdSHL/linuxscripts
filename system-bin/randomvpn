@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 # Script to select a random VPN client from /etc/openvpn/client/ (the default openvpn directory)
+# remember that openvpn profiles in /etc/openvpn/client/ need to be in the format profile.conf
+# Example: hk-04.conf
 
 workdir="/etc/openvpn/client/"
 
