@@ -4,18 +4,20 @@
 # Example: hk-04.conf
 
 workdir="/etc/openvpn/client/"
+isopenvpn=$(command -v openvpn > /dev/null)
+issystemd=$(command -v systemctl > /dev/null)
 
 if [ $UID -ne 0 ]; then
   echo "You need root privileges."
   exit
 fi
 
-if [ "$1" == "stop" ]; then
+if $isopenvpn && $issystemd && [ "$1" == "stop" ]; then
   systemctl stop openvpn-client@*
   exit
 fi
 
-if command -v openvpn > /dev/null && command -v systemctl > /dev/null; then
+if $isopenvpn && $issystemd; then
   if [ -d "$workdir" ]; then
     cd "$workdir"
     vpn=$(shuf -ezn 1 * | xargs -0 -n1)
