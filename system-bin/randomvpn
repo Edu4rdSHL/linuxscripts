@@ -28,7 +28,7 @@ elif [ "$1" == "start" ]; then
     vpn=$(shuf -ezn 1 * | xargs -0 -n1)
     if [ -f "$vpn" ]; then
       vpn=$(echo "$vpn" | cut -f1 -d '.')
-      systemctl start openvpn-client@"$vpn"
+      systemctl start "openvpn-client@$vpn"
       exit
     else
       echo "$vpn is not a file."
