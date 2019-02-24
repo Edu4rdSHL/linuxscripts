@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # Script to select a random VPN client from /etc/openvpn/client/ (the default openvpn directory)
 # remember that openvpn profiles in /etc/openvpn/client/ need to be in the format profile.conf
 # Example: hk-04.conf
@@ -16,10 +16,21 @@ if [ "$1" == "stop" ]; then
 fi
 
 if command -v openvpn > /dev/null && command -v systemctl > /dev/null; then
-  cd "$workdir"
-  vpn=$(shuf -ezn 1 * | xargs -0 -n1 | cut -f1 -d '.')
-  $(sudo systemctl start openvpn-client@$vpn)
-  exit
+  if [ -d "$workdir" ]; then
+    cd "$workdir"
+    vpn=$(shuf -ezn 1 * | xargs -0 -n1)
+    if [ -f "$vpn" ]; then
+      vpn=$(echo "$vpn" | cut -f1 -d '.')
+      systemctl start openvpn-client@"$vpn"
+      exit
+    else
+      echo "$vpn is not a file."
+      exit
+    fi
+  else
+    echo "$workdir does not exist, leaving."
+    exit
+  fi
 else
   echo "OpenVPN or systemd not installed, exiting."
   exit
