@@ -12,12 +12,17 @@ if [ $UID -ne 0 ]; then
   exit
 fi
 
-if $isopenvpn && $issystemd && [ "$1" == "stop" ]; then
-  systemctl stop openvpn-client@*
+if [ ! -z $isopenvpn ] || [ ! -z $issystemd ]; then
+  echo "OpenVPN or systemd not installed, exiting."
   exit
 fi
 
-if $isopenvpn && $issystemd; then
+if [ "$1" == "stop" ]; then
+  systemctl stop openvpn-client@*
+  exit
+
+elif [ "$1" == "start" ]; then
+  systemctl stop openvpn-client@*
   if [ -d "$workdir" ]; then
     cd "$workdir"
     vpn=$(shuf -ezn 1 * | xargs -0 -n1)
@@ -34,6 +39,6 @@ if $isopenvpn && $issystemd; then
     exit
   fi
 else
-  echo "OpenVPN or systemd not installed, exiting."
+  echo -e "Usage:\n $0 start - start a random OpenVPN client. \n $0 stop - stop the initialized OpenVPN client."
   exit
 fi
