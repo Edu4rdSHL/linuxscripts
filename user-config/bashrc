@@ -110,7 +110,7 @@ fi
 ### OWN ALIAS ###
 
 #Pastes
-#alias pb='curl -F c=@- https://ptpb.pw/?u=1'
+alias pb='curl -F c=@- https://ptpb.pw/?u=1'
 alias ix="curl -F 'f:1=<-' ix.io"
 
 #Temperature
