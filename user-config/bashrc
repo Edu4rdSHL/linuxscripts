@@ -71,12 +71,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -153,10 +153,13 @@ alias gpush='git push'
 # Alias for git pull
 alias gpull='git pull'
 
+# Alias for git commit -m
+alias gcommit='git commit -m'
+
 # Alias to kill Signal Private Messenger when crashed
 alias ksignal='killall -9 signal-desktop'
 
-# Alias to see the actual CPU frequency
+# Alias to get information about CPU
 alias cpufreq='watch -n 0.5 grep \"cpu MHz\" /proc/cpuinfo'
 alias cputemp='watch -n 0.5 sensors'
 
@@ -173,6 +176,9 @@ alias bassh='ssh edu4rdshl@192.168.122.230'
 # Find the largest top 20 files and dirs in actual linux dir
 alias longdirs='du -a ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
+
+# Alias to update ArchLinux
+alias uparch='sudo pacman -Syu --noconfirm'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
