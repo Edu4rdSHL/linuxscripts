@@ -36,9 +36,14 @@ workspace_layout tabbed
 focus_follows_mouse no
 
 ##### Programs to run at startup #####
-# exec cbatticon
+
+# Activate NumLock
+exec numlockx
+# Clipboard manager
 exec parcellite
+# Background
 exec feh --bg-center /home/sechacklabs/Pictures/SHL/sechacklabs-wallpaper-red.jpg
+# Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ##### End of programs to run at startup #####
