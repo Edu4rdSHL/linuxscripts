@@ -6,7 +6,12 @@
 # Autor: Eduard Toloza
 
 # Define variables
-services='Put here the service names that you want to restart if internet connection is not available, the services must be sepparated by spaces. Example: systemd-resolved systemd-networkd openvpn'
+services='systemd-networkd wpa_supplicant@wlp3s0 systemd-resolved randomvpn'
+
+if [ "$1" == "f" ]; then
+  sudo systemctl restart $services
+  exit
+fi
 
 #Check if ping command is available
 if command -v ping > /dev/null; then

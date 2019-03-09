@@ -110,7 +110,7 @@ fi
 ### OWN ALIAS ###
 
 #Pastes
-alias pb='curl -F c=@- https://ptpb.pw/?u=1'
+alias pb="curl -F 'sprunge=<-' http://sprunge.us"
 alias ix="curl -F 'f:1=<-' ix.io"
 
 #Temperature
@@ -179,6 +179,10 @@ alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Alias to update ArchLinux
 alias uparch='sudo pacman -Syu --noconfirm'
+
+# Alias for pkgfile
+alias pkgfile='pkgfile -v'
+alias upkgfile='sudo pkgfile -u'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
