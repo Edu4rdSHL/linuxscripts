@@ -6,7 +6,7 @@
 # Autor: Eduard Toloza
 
 # Define variables
-services='systemd-networkd wpa_supplicant@wlp3s0 systemd-resolved randomvpn'
+services='systemd-networkd iwd systemd-resolved randomvpn'
 
 if [ "$1" == "f" ]; then
   sudo systemctl restart $services
