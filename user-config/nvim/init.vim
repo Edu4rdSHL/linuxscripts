@@ -12,14 +12,29 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
+
+" Syntax highlight
 Plug 'zchee/deoplete-jedi'
+Plug 'rust-lang/rust.vim'
+Plug 'mattn/webapi-vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'sheerun/vim-polyglot'
+
+" Auto pair
+Plug 'jiangmiao/auto-pairs'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" Use mustache
+let g:mustache_abbreviations = 1
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+
+" Rust config
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'xclip -selection clipboard'
 
 syntax on
 set guifont=Monospace\ Bold\ 12
