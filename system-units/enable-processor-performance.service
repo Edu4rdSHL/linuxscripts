@@ -1,0 +1,10 @@
+[Unit]
+Description=Enable/Disable performance governor in the processor
+
+[Service]
+ExecStart=/usr/bin/processor-performance start
+ExecStop=/usr/bin/processor-performance stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target

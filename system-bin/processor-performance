@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+if [ "$1" == "start" ]; then
+  for fgovernor in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do echo performance > "${fgovernor}"; done
+  exit
+elif [ "$1" == "stop" ]; then
+  for fgovernor in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do echo powersave > "${fgovernor}"; done
+  exit
+fi
