@@ -110,8 +110,8 @@ fi
 ### OWN ALIAS ###
 
 #Pastes
-alias pb="curl -F 'sprunge=<-' http://sprunge.us"
-alias ix="curl -F 'f:1=<-' ix.io"
+alias pb="pbin"
+alias uplog="logfile=/tmp/log$RANDOM; journalctl -r > ${logfile}; pbin ${logfile}; unset logfile;"
 
 #Temperature
 alias clima='curl wttr.in/bogota?lang=es'
@@ -160,8 +160,8 @@ alias gcommit='git commit -m'
 alias ksignal='killall -9 signal-desktop'
 
 # Alias to get information about CPU
-alias cpufreq='watch -n 0.5 grep \"cpu MHz\" /proc/cpuinfo'
-alias cputemp='watch -n 0.5 sensors'
+alias cpufreq='watch -n 0.01 grep \"cpu MHz\" /proc/cpuinfo'
+alias cputemp='watch -n 0.01 sensors'
 
 # Alias to check what is my actual system IP using curl
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
