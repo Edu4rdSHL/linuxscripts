@@ -36,11 +36,15 @@ let g:deoplete#enable_at_startup = 1
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'xclip -selection clipboard'
 
+" Syntax and programming things
 syntax on
 set guifont=Monospace\ Bold\ 12
 colors gruvbox
 set background=dark
 set inccommand=nosplit
+
+" Set clipboard
+set clipboard+=unnamedplus
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
