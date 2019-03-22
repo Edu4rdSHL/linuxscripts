@@ -56,7 +56,7 @@ path_exists VPN {
 
 cpu_temperature 0 {
         format = "CPU Temp: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
         max_threshold = "70"
         format_above_threshold = "CPU Temp: %degrees °C"
 }

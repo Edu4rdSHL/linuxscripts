@@ -42,7 +42,7 @@ exec numlockx
 # Clipboard manager
 exec parcellite
 # Background
-exec feh --bg-center /home/sechacklabs/Pictures/SHL/sechacklabs-wallpaper-red.jpg
+exec feh --bg-fill "/home/sechacklabs/Pictures/rust.png"
 # Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
@@ -54,7 +54,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Return exec xfce4-terminal
 
 # Screen lock
-bindsym $mod+l exec "i3lock -e -u -t -i /home/sechacklabs/Pictures/SHL/sechacklabs-blue.png"
+bindsym $mod+l exec "i3lock -e -u -t -i /home/sechacklabs/Pictures/rust.png"
 
 # Gajim XMPP client
 bindsym $mod+x exec gajim
@@ -69,7 +69,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+p exec vlc
 
 # Signal Desktop
-bindsym $mod+s exec signal-desktop
+# bindsym $mod+s exec signal-desktop - uninstalled because the electron shit
 
 # Take screenshots
 bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"

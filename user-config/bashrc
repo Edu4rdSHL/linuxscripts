@@ -181,7 +181,6 @@ alias uparch='sudo pacman -Syu --noconfirm'
 
 # Alias for pkgfile
 alias pkgfile='pkgfile -v'
-alias upkgfile='sudo pkgfile -u'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
