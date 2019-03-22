@@ -110,8 +110,7 @@ fi
 ### OWN ALIAS ###
 
 #Pastes
-alias pb="pbin"
-alias uplog="logfile=/tmp/log$RANDOM; journalctl -r > ${logfile}; pbin ${logfile}; unset logfile;"
+alias rs="curl --data-binary @- https://paste.rs"
 
 #Temperature
 alias clima='curl wttr.in/bogota?lang=es'
@@ -196,9 +195,6 @@ export EDITOR="nvim"
 
 # Visual
 export VISUAL="nvim"
-
-# Video Acceleration
-export LIBVA_DRIVER_NAME="iHD"
 
 # Fix DIR
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"

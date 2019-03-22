@@ -2,7 +2,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Declare the list of plugins.
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'Badacadabra/vim-archery'
 Plug 'Yggdroot/indentLine'
 if has('nvim')
@@ -19,6 +20,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'sheerun/vim-polyglot'
+
+" Neovim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Auto pair
 Plug 'jiangmiao/auto-pairs'
@@ -39,12 +44,12 @@ let g:rust_clip_command = 'xclip -selection clipboard'
 " Syntax and programming things
 syntax on
 set guifont=Monospace\ Bold\ 12
-colors gruvbox
 set background=dark
+colors palenight
 set inccommand=nosplit
 
 " Set clipboard
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
