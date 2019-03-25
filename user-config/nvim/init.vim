@@ -21,6 +21,9 @@ Plug 'mattn/webapi-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'sheerun/vim-polyglot'
 
+" Neomaker
+Plug 'neomake/neomake'
+
 " Neovim airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -47,14 +50,28 @@ set guifont=Monospace\ Bold\ 12
 set background=dark
 colors palenight
 set inccommand=nosplit
+" let g:neomake_open_list = 2
+let g:neomake_warning_sign = {
+  \ 'text': 'W',
+  \ 'texthl': 'WarningMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': 'E',
+  \ 'texthl': 'ErrorMsg',
+  \ }
 
 " Set clipboard
-" set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Lint as you type
+if has("autocmd")
+  au InsertLeave,TextChanged * silent! update | Neomake
 endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
