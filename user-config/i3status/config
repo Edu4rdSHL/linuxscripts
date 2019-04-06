@@ -33,7 +33,11 @@ ethernet _first_ {
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = "%status %percentage"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_full = "☻ FULL"
+        last_full_capacity = true
 }
 
 tztime local {
@@ -45,7 +49,7 @@ load {
 }
 
 path_exists VPN {
-        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        # path exists when a VPN tunnel is active
         format = "VPN: active"
         format_down= "VPN inactive"
         path = "/proc/sys/net/ipv4/conf/tun0"
