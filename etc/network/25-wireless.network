@@ -2,12 +2,5 @@
 Name=wlp3s0
 
 [Network]
-# DHCP=ipv4
-# DNS=9.9.9.9
-# DNSOverTLS=opportunistic
-# DNSSEC=true
+LinkLocalAddressing=no
 Bond=bond1
-
-# [DHCP]
-# RouteMetric=20
-# UseDNS=no

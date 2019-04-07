@@ -2,13 +2,6 @@
 Name=enp2s0
 
 [Network]
-# DHCP=ipv4
-# DNS=9.9.9.9
-# DNSOverTLS=opportunistic
-# DNSSEC=true
 Bond=bond1
+LinkLocalAddressing=no
 PrimarySlave=true
-
-# [DHCP]
-# RouteMetric=10
-# UseDNS=no
