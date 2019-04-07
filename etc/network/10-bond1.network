@@ -1,0 +1,11 @@
+[Match]
+Name=bond1
+
+[Network]
+DHCP=ipv4
+DNSOverTLS=opportunistic
+DNSSEC=true
+DNS=9.9.9.9
+
+[DHCP]
+UseDNS=no
