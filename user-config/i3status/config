@@ -35,7 +35,7 @@ ethernet _first_ {
 
 path_exists bond {
         format = "Bonding: active"
-        format_down = "Bond: down"
+        format_down = "Bonding: down"
         path = "/proc/net/bonding/bond1"
 }
 
