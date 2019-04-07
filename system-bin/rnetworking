@@ -7,7 +7,6 @@
 
 # Define variables
 services='systemd-networkd systemd-resolved randomvpn' # iwd
-# bond_active=$(ip -o link show type bond | awk -F': ' '{print $2}')
 
 restart_network() {
 
