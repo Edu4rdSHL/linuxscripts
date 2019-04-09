@@ -7,6 +7,7 @@
 
 # Define variables
 services='systemd-networkd systemd-resolved randomvpn' # iwd
+bond_active=$(ip -o link show type bond | awk -F': ' '{print $2}')
 
 restart_network() {
 
@@ -15,8 +16,16 @@ restart_network() {
     # Check internet connection and if not OK then restart all networking services
     echo "Testing your connection..."
     if ! ping -q -c 1 -W 1 9.9.9.9 > /dev/null; then
+      # Delete bond interfaces if they exists
+      if [ ! -z "$bond_active" ] ; then
+        for bond_iface in "$bond_active"; do
+          ip link delete $bond_iface
+          sleep 2 # time for the deletion before restarting network services
+        done
+      fi
+      # Restart services
       echo "Your connection is not working, restarting your network services: $services"
-      sudo systemctl restart $services
+      systemctl restart $services
       if [ $? -eq 0 ]; then
         echo "Services restarted sucessfully, leaving."
       else
@@ -30,6 +39,11 @@ restart_network() {
   fi
 }
 
+# Validate root permisions
+if [ "$UID" != 0 ]; then
+  echo "You don't have root permisions."
+  exit
+fi
 
 # Check if the f options was passed to force restart of services
 if [ "$1" == "f" ]; then
