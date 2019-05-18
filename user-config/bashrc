@@ -52,7 +52,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[1;31m\]\u@\h \w ->\n\[\e[1;31m\] ➤➤ $\[\e[m\] '
+  PS1='\[\e[1;31m\]\u@\h \w> \[\e[m\]'
 else
     PS1='\u@\h:\w\$ '
 fi
@@ -168,19 +168,28 @@ alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 # Alias to connect to ssh machines
 alias assh='ssh vagrant@192.168.122.228'
 alias bassh='ssh edu4rdshl@192.168.122.230'
+alias dvwa='ssh dvwa@192.168.122.14'
 
 # Alias to start VirtualBox Machines in Headless mode
 # alias vbstart='VBoxHeadless -s'
+
+# Alias for ip
+alias ip='ip --color'
 
 # Find the largest top 20 files and dirs in actual linux dir
 alias longdirs='du -a ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
-# Alias to update ArchLinux
+# Alias for pacman
 alias uparch='sudo pacman -Syu --noconfirm'
+alias pss='pacman -Ss'
 
 # Alias for pkgfile
 alias pkgfile='pkgfile -v'
+
+# Alias for power management
+alias hibernate='systemctl hibernate'
+alias shutdown='shutdown -n now'
 
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
@@ -196,7 +205,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Fix DIR
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$PATH"
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.local/share/osxcross/target/bin:$PATH"
 
 ### END OF SOME LOCAL VARIABBLES ###
 
