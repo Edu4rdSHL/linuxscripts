@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+for file in *; do sed -i 's/\/etc\/openvpn\/update-resolv-conf/\/etc\/openvpn\/scripts\/update-systemd-resolved/g' $file; done
+for file in *; do sed -i "s/down \/etc\/openvpn\/scripts\/update-systemd-resolved/down \/etc\/openvpn\/scripts\/update-systemd-resolved\ndown-pre/g" $file; done
+# The next line is for stablishing the autentication using a file. Change .secret to the name of your file.
+for file in *; do sed -i 's/auth-user-pass/auth-user-pass .secret/g' $file; done
+
