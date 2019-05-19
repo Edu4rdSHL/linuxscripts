@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
 for file in *; do sed -i 's/\/etc\/openvpn\/update-resolv-conf/\/etc\/openvpn\/scripts\/update-systemd-resolved/g' $file; done
+for file in *; do sed -i "s/script-security 2/script-security 2\nsetenv PATH \/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin/g" $file; done
+for file in *; do sed -i "s/up \/etc\/openvpn\/scripts\/update-systemd-resolved/up \/etc\/openvpn\/scripts\/update-systemd-resolved\nup-restart/g" $file; done
 for file in *; do sed -i "s/down \/etc\/openvpn\/scripts\/update-systemd-resolved/down \/etc\/openvpn\/scripts\/update-systemd-resolved\ndown-pre/g" $file; done
 # The next line is for stablishing the autentication using a file. Change .secret to the name of your file.
 for file in *; do sed -i 's/auth-user-pass/auth-user-pass .secret/g' $file; done
-
