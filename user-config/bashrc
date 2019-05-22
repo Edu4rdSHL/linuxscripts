@@ -191,6 +191,12 @@ alias pkgfile='pkgfile -v'
 alias hibernate='systemctl hibernate'
 alias shutdown='shutdown -n now'
 
+# Alias for going to a temporal dir
+alias cdtemp='cd $(mktemp -d)'
+
+# Alias to show ip addresses in short and color
+alias ipa='ip -c -br a'
+
 # Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
 #install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
 
