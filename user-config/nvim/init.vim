@@ -31,6 +31,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Auto pair
 Plug 'jiangmiao/auto-pairs'
 
+" Completion for Rust
+Plug 'sebastianmarkow/deoplete-rust'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -43,6 +46,12 @@ let g:deoplete#enable_at_startup = 1
 " Rust config
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'xclip -selection clipboard'
+
+" Enable autocompletion for Rust
+let g:deoplete#sources#rust#racer_binary='/home/sechacklabs/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/sechacklabs/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#disable_keymap=1
+let g:deoplete#sources#rust#documentation_max_height=20
 
 " Syntax and programming things
 syntax on
