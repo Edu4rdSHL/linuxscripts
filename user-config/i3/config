@@ -87,6 +87,9 @@ bindcode 123 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print 
 bindcode 122 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink false ; pactl set-sink-volume $sink -5%"
 bindcode 121 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink toggle"
 
+# Mute/unmute microphone
+bindcode 172 exec "sink=$(pacmd stat | awk -F': ' '/^Default source name: /{print $2}'); pactl set-source-mute $sink toggle"
+
 # Poweroff the machine
 bindcode 124 exec propershutdown
 
