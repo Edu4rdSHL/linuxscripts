@@ -45,6 +45,8 @@ exec parcellite
 exec feh --bg-fill "/home/sechacklabs/Pictures/rust.png"
 # Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Battery icon, used to get notifications in battery critical level and more
+exec cbatticon
 
 ##### End of programs to run at startup #####
 
@@ -73,7 +75,7 @@ bindsym $mod+p exec vlc
 
 # Take screenshots
 bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
-bindsym $mod+Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
+bindsym $mod+Print exec "scrot -u '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
 # bindsym $mod+Shift+Print exec "scrot -s '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
 
 # Monitor brigthness
@@ -81,9 +83,9 @@ bindcode 233 exec xbacklight -inc 5
 bindcode 232 exec xbacklight -dec 5
 
 # Volume control
-bindcode 123 exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
-bindcode 122 exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
-bindcode 121 exec pactl set-sink-mute 0 toggle
+bindcode 123 exec "pactl set-sink-mute $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') false ; pactl set-sink-volume $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') +5%"
+bindcode 122 exec "pactl set-sink-mute $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') false ; pactl set-sink-volume $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') -5%"
+bindcode 121 exec "pactl set-sink-mute $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') toggle"
 
 # Poweroff the machine
 bindcode 124 exec propershutdown
