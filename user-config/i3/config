@@ -83,9 +83,9 @@ bindcode 233 exec xbacklight -inc 5
 bindcode 232 exec xbacklight -dec 5
 
 # Volume control
-bindcode 123 exec "pactl set-sink-mute $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') false ; pactl set-sink-volume $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') +5%"
-bindcode 122 exec "pactl set-sink-mute $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') false ; pactl set-sink-volume $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') -5%"
-bindcode 121 exec "pactl set-sink-mute $(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}') toggle"
+bindcode 123 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink false ; pactl set-sink-volume $sink +5%"
+bindcode 122 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink false ; pactl set-sink-volume $sink -5%"
+bindcode 121 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink toggle"
 
 # Poweroff the machine
 bindcode 124 exec propershutdown
