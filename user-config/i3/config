@@ -42,7 +42,7 @@ exec numlockx
 # Clipboard manager
 exec parcellite
 # Background
-exec feh --bg-fill "/home/sechacklabs/Pictures/rust.png"
+exec feh --bg-fill "/home/sechacklabs/Pictures/SHL/Nuevos Logos/logoSHLcommunity.png"
 # Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Battery icon, used to get notifications in battery critical level and more
@@ -56,7 +56,7 @@ exec cbatticon
 bindsym $mod+Return exec xfce4-terminal
 
 # Screen lock
-bindsym $mod+l exec "i3lock -e -u -t -i /home/sechacklabs/Pictures/rust.png"
+bindsym $mod+l exec "i3lock -e -u -t -i '/home/sechacklabs/Pictures/SHL/Nuevos Logos/logoSHLcommunity.png'"
 
 # Gajim XMPP client
 bindsym $mod+x exec gajim
@@ -71,7 +71,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+p exec vlc
 
 # Signal Desktop
-# bindsym $mod+s exec signal-desktop # uninstalled because the electron shit
+bindsym $mod+s exec signal-desktop # uninstalled because the electron shit
 
 # Take screenshots
 bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
@@ -98,8 +98,9 @@ bindcode 124 exec propershutdown
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+F2 exec dmenu_run
+# start Rofi (a program launcher)
+bindsym $mod+F2 exec "rofi -show combi"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
