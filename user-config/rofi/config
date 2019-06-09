@@ -3,13 +3,13 @@ rofi.theme:           gruvbox-dark-hard
 rofi.modi:            combi
 rofi.location:        1
 rofi.width:           100
-rofi.lines:           3
+rofi.lines:           10
 rofi.line-margin:     0
 rofi.line-padding:    1
 rofi.separator-style: none
-rofi.columns:         6
+rofi.columns:         2
 rofi.bw:              0
 rofi.case-sensitive:  false
-rofi.disable-history: true
+rofi.disable-history: false
 rofi.hide-scrollbar:  true
 rofi.kb-row-tab:      Tab
