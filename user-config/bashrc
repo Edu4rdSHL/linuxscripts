@@ -158,9 +158,9 @@ alias gcommit='git commit -m'
 # Alias to kill Signal Private Messenger when crashed
 alias ksignal='killall -9 signal-desktop'
 
-# Alias to get information about CPU
-alias cpufreq='watch -n 0.01 grep \"cpu MHz\" /proc/cpuinfo'
-alias cputemp='watch -n 0.01 sensors'
+# Alias to get information about CPU - please use i7z
+# alias cpufreq='watch -n 0.01 grep \"cpu MHz\" /proc/cpuinfo'
+# alias cputemp='watch -n 0.01 sensors'
 
 # Alias to check what is my actual system IP using curl
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -181,7 +181,7 @@ alias longdirs='du -a ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Alias for pacman
-alias uparch='sudo pacman -Syu --noconfirm'
+alias uparch='sudo pacman -Syuu --noconfirm'
 alias pss='pacman -Ss'
 
 # Alias for pkgfile
