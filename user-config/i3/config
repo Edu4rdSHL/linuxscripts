@@ -71,7 +71,10 @@ bindsym $mod+f exec firefox
 bindsym $mod+p exec vlc
 
 # Signal Desktop
-bindsym $mod+s exec signal-desktop # uninstalled because the electron shit
+# bindsym $mod+s exec signal-desktop # uninstalled because the electron shit
+
+# Discord
+bindsym $mod+d exec discord
 
 # Take screenshots
 bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
