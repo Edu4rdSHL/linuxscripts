@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+#Usted es libre de editar y/o distribuir este programa bajo los terminos de la licencia GPL v3 o posterior.
+
+printf "\nEste script está diseñado para que te conectes a internet sin necesidad de un gestor gráfico de red
+        haciendo uso de software como wpa_supplicant, dhcpcd/dhclient e iptools desde la línea de comandos.
+                  Programador: Eduard Eliecer Tolosa Toloza
+                    XMPP/Email: tolosaeduard@disroot.org
+               Contacto y sala de chat: https://discord.gg/6hm7m8S
+                    Security Hack Labs Team. @SecHackLabs
+                     Blog: https://securityhacklabs.net\n
+"
+
+
+if [ "$UID" -ne 0 ]; then
+  echo -e "\n Usted necesita privilegios root o sudo."
+  exit
+fi
+
+function choose(){
+  echo -e "Elige el tipo de red que deseas usar:\na) Sin autenticación \nb) Con contraseña\nc) Red cableada (Ethernet)\n"
+  read -p "Tipo: " iskey
+}
+
+if [ -f /usr/bin/wpa_supplicant ] || [ -f /sbin/wpa_supplicant ] ; then
+  echo -e "\nwpa_supplicant está instalado."
+else
+  if [ -f /etc/pacman.conf ] ; then
+    pacman -S wpa_supplicant
+  elif [ -f /etc/apt/sources.list ] ; then
+    apt install wpasupplicant
+  fi
+fi
+
+if [ -f /usr/bin/dhcpcd ] || [ -f /sbin/dhcpcd ] ; then
+  echo -e "dhcpcd está instalado.\n"
+else
+  if [ -f /etc/pacman.conf ] ; then
+    pacman -S dhcpcd
+  elif [ -f /etc/apt/sources.list ] ; then
+    apt install dhcpcd5
+  fi
+fi
+
+function connect(){
+  iface=$(ip -o link show | awk -F': ' '{print $2}' |grep -v "lo")
+  echo -e "\nEscribe el nombre de la interfaz de red a usar:\n"
+  for ifacename in $iface; do echo -e "- $ifacename"; done
+  echo ""
+  read -p "Interface: " iface
+  choose
+  wpafile="/etc/wpa_supplicant/wpa_supplicant-$iface.conf"
+  if [ $iskey == "a" ]; then
+  if [ -f $wpafile ] ; then
+    rfkill unblock all
+    dhcpcd -k $iface
+    killall dhcpcd
+    killall dhclient
+    killall wpa_supplicant
+    ip link set dev $iface up
+    wpa_supplicant -B -i $iface -c $wpafile
+    dhcpcd -4 --noarp $iface
+  else
+    echo -e "\nNecesitas configurar tu archivo de conexión, por favor ingrese los datos cuando sean solicitados.\n"
+    read -p "Introduce tu nombre de red: " nombre
+    echo -e "network={\n\tssid=\"$nombre\"\n\tkey_mgmt=NONE\n\tpriority=100\n}" > $wpafile
+    rfkill unblock all
+    dhcpcd -k $iface
+    killall dhcpcd
+    killall dhclient
+    killall wpa_supplicant
+    ip link set dev $iface up
+    wpa_supplicant -B -i $iface -c $wpafile
+    dhcpcd -4 --noarp $iface
+    if [ $? -eq 0 ] ; then
+    echo -e "\nConexión establecida."
+    else
+    echo -e "\nHa ocurrido un error."
+    fi
+  fi
+
+  elif [ $iskey == "b" ] ; then
+  if [ -f $wpafile ] ; then
+    rfkill unblock all
+    dhcpcd -k $iface
+    killall dhcpcd
+    killall dhclient
+    killall wpa_supplicant
+    ip link set dev $iface up
+    wpa_supplicant -B -i $iface -c $wpafile
+    dhcpcd -4 --noarp $iface
+  else
+    echo -e "\nNecesitas configurar tu archivo de conexión, por favor ingrese los datos cuando sean solicitados.\n"
+    read -p "Introduce tu nombre de red: " nombre
+    read -p  "Introduce tu contraseña: " password
+    wpa_passphrase "$nombre" "$password" > $wpafile
+    rfkill unblock all
+    dhcpcd -k $iface
+    killall dhcpcd
+    killall dhclient
+    killall wpa_supplicant
+    ip link set dev $iface up
+    wpa_supplicant -B -i $iface -c $wpafile
+    dhcpcd -4 --noarp $iface
+    if [ $? -eq 0 ] ; then
+    echo -e "\nConexión establecida."
+    else
+    echo -e "\nHa ocurrido un error."
+    fi
+  fi
+  elif [ $iskey == "c" ] ; then
+  if [ -f ~/.conectarc ] ; then
+    echo -e "\nUsted ya tiene habilitado DHCPCD, si no tiene internet, revisa tu modém o cable\n"
+    exit
+  elif [ -f ~/.nosystemd ] ; then
+    echo -e "\nEstableciendo una conexión.\n"
+    rfkill unblock all
+    dhcpcd -k $iface
+    killall dhcpcd
+    killall dhclient
+    killall wpa_supplicant
+    ip link set dev $iface up
+    dhcpcd -4 --noarp $iface
+    if [ $? -eq 0 ] ; then
+    echo -e "\nConexión establecida."
+    exit
+    else
+    echo -e "\nHa ocurrido un error.\n"
+    fi
+  else
+    echo -e "\nEstableciendo una conexión.\n"
+    rfkill unblock all
+    dhcpcd -k $iface
+    killall dhcpcd
+    killall dhclient
+    killall wpa_supplicant
+    ip link set dev $iface up
+    dhcpcd -4 --noarp $iface
+    if [ "$?" -eq 0 ] ; then
+    read -p "¿Está usted usando SystemD? (s/n)" systemd
+    if [ "$systemd" == "s" ] ; then
+      echo -e "\nHabilitando DHCPCD mediante systemctl.\n"
+      systemctl enable dhcpcd
+      if [ "$?" -eq 0 ] ; then
+      echo "Archivo para comprobar que DHCPCD está habilitando en el inicio del systema, creado por el script 'conectar'" > ~/.conectarc
+      echo -e "\nConexión establecida."
+      exit
+      fi
+    else
+      echo -e "\nUsted no usa SystemD, puede habilitar DHCPCD usando tu gestor init."
+      echo "Archivo para comprobar que no usas Systemd." > ~/.nosystemd
+      echo -e "\nConexión establecida."
+    fi
+    else
+    echo -e "\nHa ocurrido un error.\n"
+    fi
+  fi
+  fi
+}
+
+connect
