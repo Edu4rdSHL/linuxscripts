@@ -8,67 +8,74 @@
 
 general {
         colors = true
-        interval = 1
+        #color_good = "#b8bb26"
+        #color_bad = "#fb4934"
+        #color_degraded = "#fabd2f"
+        separator = ""
+        output_format = "i3bar"
+        interval = 2
 }
 
-# order += "ipv6"
-# order += "disk /"
-order += "wireless _first_"
-
-order += "ethernet _first_"
-order += "path_exists bond"
 order += "path_exists VPN"
+order += "disk /"
+order += "disk /home"
+#order += "disk /mnt/data"
 order += "load"
+order += "memory"
 order += "cpu_temperature 0"
+order += "battery all"
 order += "tztime local"
-# order += "battery all"
+order += "volume master"
 
-wireless _first_ {
-        format_up = "W: (%quality at %essid)"
-        format_down = "W: Down"
+volume master {
+        format = "🔊 %volume"
+        format_muted = "🔇 %volume"
 }
 
-ethernet _first_ {
-        # if you use %speed, i3status requires root privileges
-        format_up = "E: (%speed)"
-        format_down = "E: Down"
+disk "/" {
+        format = "🌱 %avail"
+        low_threshold = 25
+        threshold_type = percentage_avail
 }
 
-path_exists bond {
-        format = "Bonding: Up"
-        format_down = "Bonding: Down"
-        path = "/proc/net/bonding/bond1"
-}
-
-# battery all {
-#         format = "%status %percentage"
-#         status_chr = "⚡ CHR"
-#         status_bat = "🔋 BAT"
-#         status_full = "☻ FULL"
-#         last_full_capacity = true
-# }
-
-tztime local {
-        format = "%Y-%m-%d %H:%M"
-}
-
-load {
-        format = "CPU load: %1min"
+disk "/home" {
+        format = "🏡 %avail"
+        low_threshold = 25
+        threshold_type = percentage_avail
 }
 
 path_exists VPN {
         # path exists when a VPN tunnel is active
-        format = "VPN: active"
-        format_down= "VPN inactive"
+        format = "🖧  OK"
+        format_down = "🖧  X"
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
-# disk "/" {
-#         format = "%avail"
-# }
+
+battery all {
+        format = "%status %percentage"
+        integer_battery_capacity = true
+        status_chr = "⚡"
+        status_bat = "🔋"
+        status_full = "☻"
+        last_full_capacity = true
+}
+
+load {
+        format = "👣 %1min %5min %15min"
+}
+
+memory {
+        format = "⚖️ %used | %available"
+        threshold_degraded = "1G"
+        format_degraded = "⛔ < %available"
+}
 
 cpu_temperature 0 {
-        format = "CPU Temp: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
-        max_threshold = "70"
-        format_above_threshold = "CPU Temp: %degrees °C"
+        format = "🌡️ %degrees °C"
+        format_above_threshold = "🔥 %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon[1-3]/temp1_input"
+}
+
+tztime local {
+        format = "🌎 %a %d %H:%M"
 }
