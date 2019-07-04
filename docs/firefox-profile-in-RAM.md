@@ -28,7 +28,7 @@ Finalmente instale [rsync](https://rsync.samba.org) en su equipo. Suele estar en
 
 # **El script que coloca el perfil de Firefox en RAM:**
 
-El script lo encontrarán en este enlace: https://gitlab.com/edu4rdshl/linuxscripts/blob/master/user-bin/firefox-sync, deben crear un archivo dentro de $HOME/.local/bin con el nombre *firefox-sync*, una vez creado deben seguir estos pasos:
+El script lo encontrarán en este enlace: https://github.com/edu4rdshl/linuxscripts/blob/master/user-bin/firefox-sync, deben crear un archivo dentro de $HOME/.local/bin con el nombre *firefox-sync*, una vez creado deben seguir estos pasos:
 
 Terminar todos los procesos de firefox corriendo:
 
@@ -86,7 +86,7 @@ Memoria RAM Física  Memoria Cache (en KB)
 
 Los pasos explicados a continuación solo funcionan si su distribución GNU/Linux está usnado SystemD.
 
-Cree un archivo llamado *firefox-profile@.service* dentro del directorio *$HOME/.config/systemd/user*, si el directorio no existe debe crearlo. El archivo debe contener el contenido que se encuentra en este link: https://gitlab.com/edu4rdshl/linuxscripts/blob/master/user/firefox-profile@.service. No olvide reemplazar **YourUsername** con el nombre de usuario que usted tenga en su sistema.
+Cree un archivo llamado *firefox-profile@.service* dentro del directorio *$HOME/.config/systemd/user*, si el directorio no existe debe crearlo. El archivo debe contener el contenido que se encuentra en este link: https://github.com/edu4rdshl/linuxscripts/blob/master/user/firefox-profile@.service. No olvide reemplazar **YourUsername** con el nombre de usuario que usted tenga en su sistema.
 
 Luego ejecute estos comandos:
 
@@ -119,4 +119,4 @@ Ejecute este comando para añadir las líneas necesarias en *.bash_logout* y *.b
 
 `$ echo '~/.local/bin/firefox-sync' | tee -a ~/.bash_logout ~/.bash_profile >/dev/null`
 
-Con esto finalizamos, no olvides registrarte en nuestro foro: https://foro.securityhacklabs.net, unirte a nuestro servidor de chat Discord en: https://chat.securityhacklabs.net, en él podrás tratar temas de hacking, sistemas operativos y todo lo relacionado con seguridad en general. Las instrucciones para instalar Discord en todas las plataformas las encontrará aquí: https://gitlab.com/sechacklabs/hacking/blob/master/instalacion%20de%20discord.md
+Con esto finalizamos, no olvides registrarte en nuestro foro: https://foro.securityhacklabs.net, unirte a nuestro servidor de chat Discord en: https://chat.securityhacklabs.net, en él podrás tratar temas de hacking, sistemas operativos y todo lo relacionado con seguridad en general. Las instrucciones para instalar Discord en todas las plataformas las encontrará aquí: https://github.com/sechacklabs/hacking/blob/master/instalacion%20de%20discord.md
