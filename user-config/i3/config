@@ -35,6 +35,13 @@ workspace_layout tabbed
 # Disable mouse focus
 focus_follows_mouse no
 
+# color
+set $bg-color            #1b0859
+set $inactive-bg-color   #084659
+set $text-color          #f3f4f5
+set $inactive-text-color #f3f4f5
+set $urgent-bg-color     #E53935
+
 ##### Programs to run at startup #####
 
 # Activate NumLock
@@ -46,7 +53,7 @@ exec feh --bg-fill "/home/sechacklabs/Pictures/SHL/Nuevos Logos/logoSHLcommunity
 # Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Battery icon, used to get notifications in battery critical level and more
-exec cbatticon
+# exec cbatticon
 
 ##### End of programs to run at startup #####
 
@@ -79,7 +86,7 @@ bindsym $mod+d exec discord
 # Take screenshots
 bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
 bindsym $mod+Print exec "scrot -u '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
-# bindsym $mod+Shift+Print exec "scrot -s '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
+bindsym --release Shift+Print exec "scrot -s -z '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
 
 # Monitor brigthness
 bindcode 233 exec xbacklight -inc 5
@@ -229,6 +236,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          $text-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
