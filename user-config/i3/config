@@ -77,9 +77,11 @@ bindsym $mod+p exec vlc
 bindsym $mod+d exec discord
 
 # Take screenshots
-bindsym Print exec "scrot -b '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
-bindsym $mod+Print exec "scrot -u '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
-bindsym --release Shift+Print exec "scrot -s -z '%Y-%m-%d-%H%M%S-sechacklabs.png' -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'"
+bindsym Print exec "maim -s --format=png | xclip -selection clipboard -t image/png"
+bindsym --release Control+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; scrot -s -z $image -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'; xclip -selection clipboard -t image/png -i /home/sechacklabs/Pictures/Screenshots/$image"
+bindsym Shift+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; scrot -b $image -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'; xclip -selection clipboard -t image/png -i /home/sechacklabs/Pictures/Screenshots/$image"
+bindsym $mod+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; scrot -u $image -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'; xclip -selection clipboard -t image/png -i /home/sechacklabs/Pictures/Screenshots/$image"
+
 
 # Monitor brigthness
 bindcode 233 exec xbacklight -inc 5
