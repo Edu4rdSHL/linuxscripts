@@ -36,8 +36,8 @@ workspace_layout tabbed
 focus_follows_mouse no
 
 # color
-set $bg-color            #1b0859
-set $inactive-bg-color   #084659
+set $bg-color            #2f3035
+set $inactive-bg-color   #151416
 set $text-color          #f3f4f5
 set $inactive-text-color #f3f4f5
 set $urgent-bg-color     #E53935
