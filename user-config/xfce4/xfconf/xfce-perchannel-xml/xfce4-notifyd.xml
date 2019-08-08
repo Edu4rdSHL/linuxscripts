@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-notifyd" version="1.0">
+  <property name="applications" type="empty">
+    <property name="known_applications" type="array">
+      <value type="string" value="cbatticon"/>
+      <value type="string" value="Electron"/>
+      <value type="string" value="FileZilla"/>
+      <value type="string" value="Firefox"/>
+      <value type="string" value="im.dino.Dino"/>
+      <value type="string" value="notifications"/>
+      <value type="string" value="notify-send"/>
+      <value type="string" value="org.gajim.Gajim"/>
+      <value type="string" value="powerman"/>
+      <value type="string" value="Signal"/>
+      <value type="string" value="Signal Beta"/>
+      <value type="string" value="signal-desktop"/>
+      <value type="string" value="Skype"/>
+      <value type="string" value="thunderbird"/>
+      <value type="string" value="Thunderbird"/>
+      <value type="string" value="upcheck"/>
+      <value type="string" value="upcheck (deleted)"/>
+      <value type="string" value="weechat"/>
+    </property>
+  </property>
+</channel>
