@@ -181,7 +181,7 @@ alias longdirs='du -a ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Alias for pacman
-alias uparch='sudo pacman -Syuu --noconfirm'
+alias uparch='sudo pacman -Syu --noconfirm'
 alias pss='pacman -Ss'
 
 # Alias for pkgfile
@@ -217,5 +217,5 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.local/share/os
 
 # Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+  exec sx
 fi
