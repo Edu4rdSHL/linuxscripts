@@ -1,0 +1,94 @@
+### OWN ALIAS ###
+
+#Pastes
+alias rs="curl --data-binary @- https://paste.rs"
+
+#Temperature
+alias clima='curl wttr.in/bogota?lang=es'
+
+# Youtube to MP3 and webistes videos to MP4
+alias ytmp3="youtube-dl --output '~/Music/Downloaded/%(title)s.%(ext)s' --extract-audio --audio-format mp3"
+alias vidtomp4="youtube-dl --output '~/Videos/Downloaded/%(title)s.%(ext)s' -f 'mp4'"
+
+# Check permisions
+alias pcheck='stat -c "%A %a %n"'
+
+#Journalctl logs
+alias jlogs='journalctl -b -p 4..1'
+
+# Version for Git packages
+alias gitver='echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)'
+
+# Version for Git packages with tags
+alias gitag="git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'"
+
+# Alias to get sha512sums
+alias ssums='sha512sum'
+
+# Print SRCINFO in AUR packages
+alias srcinfo='makepkg --printsrcinfo > .SRCINFO'
+
+# See the amount of memory and CPU used by applications
+alias cmcheck='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem|head'
+
+# Alias for git pull --rebase to prevent merging branchs
+alias gpr='git pull --rebase'
+
+# Alias for git clone
+alias gclone='git clone'
+
+# Alias for git push
+alias gpush='git push'
+
+# Alias for git pull
+alias gpull='git pull'
+
+# Alias for git commit -m
+alias gcommit='git commit -m'
+
+# Alias to kill Signal Private Messenger when crashed
+alias ksignal='killall -9 signal-desktop'
+
+# Alias to get information about CPU - please use i7z
+# alias cpufreq='watch -n 0.01 grep \"cpu MHz\" /proc/cpuinfo'
+# alias cputemp='watch -n 0.01 sensors'
+
+# Alias to check what is my actual system IP using curl
+alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+# Alias to connect to ssh machines
+alias assh='ssh vagrant@192.168.122.228'
+alias bassh='ssh edu4rdshl@192.168.122.230'
+alias dvwa='ssh dvwa@192.168.122.14'
+
+# Alias to start VirtualBox Machines in Headless mode
+# alias vbstart='VBoxHeadless -s'
+
+# Alias for ip
+alias ip='ip --color'
+
+# Find the largest top 20 files and dirs in actual linux dir
+alias longdirs='du -a ./ | sort -n -r | head -n 20'
+alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
+
+# Alias for pacman
+alias uparch='sudo pacman -Syu --noconfirm'
+alias pss='pacman -Ss'
+
+# Alias for pkgfile
+alias pkgfile='pkgfile -v'
+
+# Alias for power management
+alias hibernate='systemctl hibernate'
+alias shutdown='shutdown -n now'
+
+# Alias for going to a temporal dir
+alias cdtemp='cd $(mktemp -d)'
+
+# Alias to show ip addresses in short and color
+alias ipa='ip -c -br a'
+
+# Avoid pip installing packages as root/sudo, execute the following line in your terminal or just delete the # at the begin
+#install -Dm644 /dev/stdin ~/.config/pip/pip.conf <<< $'[install]\nuser = yes\n'
+
+### END OWN ALIAS ###

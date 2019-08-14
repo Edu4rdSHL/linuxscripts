@@ -6,7 +6,7 @@
 # Autor: Eduard Toloza
 
 # Define variables
-services='systemd-networkd systemd-resolved randomvpn' # iwd
+services='systemd-networkd systemd-resolved randomvpn' #enable-processor-performance iwd
 bond_active=$(ip -o link show type bond | awk -F': ' '{print $2}')
 
 restart_network() {
@@ -15,7 +15,7 @@ restart_network() {
   if command -v ping > /dev/null; then
     # Check internet connection and if not OK then restart all networking services
     echo "Testing your connection..."
-    if ! ping -q -c 1 -W 1 9.9.9.9 > /dev/null; then
+    if ! ping -q -c 1 -W 1 9.9.9.9 > /dev/null || ! systemctl is-active openvpn-client@*.service > /dev/null; then
       # Delete bond interfaces if they exists
       if [ ! -z "$bond_active" ] ; then
         for bond_iface in "$bond_active"; do
