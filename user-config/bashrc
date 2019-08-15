@@ -121,6 +121,7 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.local/share/os
 ### END OF SOME LOCAL VARIABBLES ###
 
 ### Source scripts ###
+# Git prompt, see https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 if [ -f ~/.local/bin/git-prompt.sh ]; then
   source ~/.local/bin/git-prompt.sh
 fi
