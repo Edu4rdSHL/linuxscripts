@@ -1,8 +1,9 @@
 [Unit]
- Description=Comprobación automatica de servicios de red cada 5 minutos
+ Description=Check network services every 5 minutes
+
 [Timer]
- OnBootSec=2min
- OnUnitActiveSec=10min
+ OnBootSec=1min
+ OnUnitActiveSec=5min
  Unit=rnetworking.service
 
 [Install]

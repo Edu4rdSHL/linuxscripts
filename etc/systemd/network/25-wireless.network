@@ -1,11 +1,12 @@
 [Match]
-Name=bond1
+Name=wlp3s0
 
 [Network]
 DHCP=ipv4
+DNS=9.9.9.9
 DNSOverTLS=opportunistic
 DNSSEC=true
-DNS=9.9.9.9
 
 [DHCP]
+RouteMetric=20
 UseDNS=no

@@ -1,0 +1,20 @@
+[Unit]
+Description=Random VPN client
+After=syslog.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/etc/openvpn/client/
+ProtectHome=true
+ProtectSystem=strict
+ExecStart=/usr/bin/randomvpn start
+RemainAfterExit=yes
+# CapabilityBoundingSet=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SYS_CHROOT CAP_DAC_OVERRIDE LimitNPROC=10
+# DeviceAllow=/dev/null rw
+# DeviceAllow=/dev/net/tun rw
+ExecStop=/usr/bin/randomvpn stop
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

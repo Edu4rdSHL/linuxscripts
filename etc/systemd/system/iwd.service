@@ -1,0 +1,14 @@
+[Unit]
+Description=Wireless service
+Before=network.target
+Wants=network.target
+
+[Service]
+Type=dbus
+BusName=net.connman.iwd
+ExecStart=/usr/lib/iwd/iwd
+LimitNPROC=1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

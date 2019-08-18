@@ -1,13 +1,17 @@
 [Unit]
  Description=Restart networking services if internet connection not detected
- After=network-online.target
+ After=network-online.target iwd.service
 
 [Service]
- Type=oneshot
- ExecStart=/usr/bin/rnetworking
- TimeoutStopSec=180
- KillMode=process
- KillSignal=SIGINT
+Type=oneshot
+ProtectHome=true
+ProtectSystem=strict
+ExecStart=/usr/bin/rnetworking
+CapabilityBoundingSet=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SYS_CHROOT CAP_DAC_OVERRIDE LimitNPROC=10
+DeviceAllow=/dev/null rw
+DeviceAllow=/dev/net/tun rw
+StandardOutput=null
+KillMode=process
 
 [Install]
  WantedBy=multi-user.target
