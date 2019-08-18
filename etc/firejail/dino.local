@@ -1,0 +1,5 @@
+# Dino local configuration
+
+whitelist ${HOME}/Documents
+whitelist ${HOME}/Pictures
+whitelist ${HOME}/Videos

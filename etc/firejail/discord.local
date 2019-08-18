@@ -1,0 +1,6 @@
+# Discord local profile
+
+whitelist ${HOME}/Documents
+whitelist ${HOME}/Pictures
+whitelist ${HOME}/Videos
+whitelist ${HOME}/Rust

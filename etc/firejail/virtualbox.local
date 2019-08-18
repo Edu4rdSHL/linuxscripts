@@ -1,0 +1,4 @@
+# VirtualBox local profile
+
+whitelist ${HOME}/Shared
+whitelist ${HOME}/.Genymobile

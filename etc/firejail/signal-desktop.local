@@ -1,0 +1,4 @@
+# Signal local profile
+
+whitelist ${HOME}/Documents
+whitelist ${HOME}/Pictures

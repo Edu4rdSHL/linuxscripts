@@ -1,0 +1,5 @@
+# enable Apparmor globally
+apparmor
+
+# Whitelist sx xauthority
+whitelist ${HOME}/.local/share/sx/xauthority

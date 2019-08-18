@@ -1,0 +1,12 @@
+# Gajim local profile
+# ignore "include disable-xdg.inc"
+
+ignore blacklist ${DOCUMENTS}
+ignore blacklist ${MUSIC}
+ignore blacklist ${PICTURES}
+ignore blacklist ${VIDEOS}
+
+whitelist ${HOME}/Documents
+whitelist ${HOME}/Pictures
+whitelist ${HOME}/Videos
+whitelist ${HOME}/Rust
