@@ -1,0 +1,12 @@
+[Unit]
+ Description=Monitor subdomains.
+ After=network-online.target
+
+[Service]
+ Type=simple
+ ExecStart=bash -c "findomain_virustotal_token='' findomain_fb_token='' findomain_discord_webhook='' findomain -f domains.txt -m"
+ KillMode=process
+ KillSignal=SIGINT
+
+[Install]
+ WantedBy=default.target

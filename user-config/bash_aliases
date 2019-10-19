@@ -50,15 +50,15 @@ alias gcommit='git commit -m'
 alias ksignal='killall -9 signal-desktop'
 
 # Alias to get information about CPU - please use i7z
-# alias cpufreq='watch -n 0.01 grep \"cpu MHz\" /proc/cpuinfo'
-# alias cputemp='watch -n 0.01 sensors'
+alias cpufreq='watch -n 0.01 grep \"cpu MHz\" /proc/cpuinfo'
+alias cputemp='watch -n 0.01 sensors'
 
 # Alias to check what is my actual system IP using curl
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Alias to connect to ssh machines
-alias assh='ssh vagrant@192.168.122.228'
-alias bassh='ssh edu4rdshl@192.168.122.230'
+alias assh='ssh edu4rdshl@192.168.122.228'
+alias bassh='ssh root@192.168.122.230'
 alias dvwa='ssh dvwa@192.168.122.14'
 
 # Alias to start VirtualBox Machines in Headless mode
@@ -80,7 +80,8 @@ alias pkgfile='pkgfile -v'
 
 # Alias for power management
 alias hibernate='systemctl hibernate'
-alias shutdown='shutdown -n now'
+alias shutdown='systemctl poweroff'
+alias reboot='systemctl reboot'
 
 # Alias for going to a temporal dir
 alias cdtemp='cd $(mktemp -d)'

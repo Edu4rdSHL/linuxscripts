@@ -15,18 +15,19 @@ restart_network() {
   if command -v ping > /dev/null; then
     # Check internet connection and if not OK then restart all networking services
     echo "Testing your connection..."
-    if ! ping -q -c 1 -W 1 9.9.9.9 > /dev/null || ! systemctl is-active openvpn-client@*.service > /dev/null; then
+    if ! ping -q -c 1 -W 1 9.9.9.9 > /dev/null || ! systemctl is-active openvpn-client@*.service > /dev/null || ! [ -d /proc/sys/net/ipv4/conf/tun0 ]; then
       # Delete bond interfaces if they exists
       if [ ! -z "$bond_active" ] ; then
         for bond_iface in "$bond_active"; do
           ip link delete $bond_iface
-          sleep 2 # time for the deletion before restarting network services
+          sleep 1 # time for the deletion before restarting network services
         done
       fi
+      # Kill openvpn
+      killall -9 openvpn
       # Restart services
       echo "Your connection is not working, restarting your network services: $services"
-      systemctl restart $services
-      if [ $? -eq 0 ]; then
+      if systemctl restart $services; then
         echo "Services restarted sucessfully, leaving."
       else
         echo "An error has occurred, make sure that service names are correct."

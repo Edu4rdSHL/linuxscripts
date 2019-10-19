@@ -30,7 +30,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # Use tabbed layout mode
-# workspace_layout tabbed
+workspace_layout tabbed
 
 # Disable mouse focus
 focus_follows_mouse no
@@ -45,6 +45,8 @@ exec parcellite
 exec feh --bg-fill '/home/sechacklabs/Pictures/SHL/Nuevos Logos/shl-fin.png'
 # Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Brightness
+exec "xbacklight -set 50"
 # Battery icon, used to get notifications in battery critical level and more
 # exec cbatticon
 
@@ -65,17 +67,16 @@ bindsym $mod+x exec gajim
 bindsym $mod+F3 exec pcmanfm
 
 # Firefox
-# bindsym $mod+f exec firefox
-bindsym $mod+f exec firefox-nightly
+bindsym $mod+f exec firefox
 
 # SMPlayer
 bindsym $mod+p exec vlc
 
-# Signal Desktop
-# bindsym $mod+s exec "signal-desktop --disable-gpu"
-
 # Discord
 bindsym $mod+d exec discord
+
+# Signal
+bindsym $mod+s exec "slack"
 
 # Take screenshots
 bindsym Print exec "maim -s --format=png | xclip -selection clipboard -t image/png"
@@ -85,8 +86,8 @@ bindsym $mod+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; scrot 
 
 
 # Monitor brigthness
-bindcode 233 exec xbacklight -inc 5
-bindcode 232 exec xbacklight -dec 5
+bindcode 171 exec "brightnessctl set 5%+"
+bindcode 173 exec "brightnessctl set 5%-"
 
 # Volume control
 bindcode 123 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink false ; pactl set-sink-volume $sink +5%"
@@ -238,3 +239,4 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+

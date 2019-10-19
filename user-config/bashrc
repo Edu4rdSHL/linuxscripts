@@ -51,8 +51,15 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# colors
+darkgrey="$(tput bold ; tput setaf 0)"
+white="$(tput bold ; tput setaf 7)"
+blue="$(tput bold; tput setaf 4)"
+cyan="$(tput bold; tput setaf 6)"
+nc="$(tput sgr0)"
+
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[0;32m\]\u\[\033[0;36m\] @ \h \w\[\033[0;32m\]$(__git_ps1)\n└─ ▶\[\033[0m\] '
+  PS1='\[$blue\][ \[$cyan\]\H \[$darkgrey\]\w\[$darkgrey\] \[$blue\]]\[$blue\]$(__git_ps1)\n└─ ▶\[$nc\] '
 else
     PS1='\u@\h:\w\$ '
 fi
@@ -116,7 +123,14 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Fix DIR
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.local/share/osxcross/target/bin:$HOME/.cargo/bin:$PATH"
+#PATH="$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.local/share/osxcross/target/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/osxcross/target/bin:$HOME/.cargo/bin:$HOME/.dotnet/tools:$PATH"
+
+# Output vscode telemetry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Set TERM
+export TERM=xterm-256color
 
 ### END OF SOME LOCAL VARIABBLES ###
 
@@ -128,5 +142,5 @@ fi
 
 # Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec sx
+  exec startx
 fi

@@ -8,9 +8,6 @@
 
 general {
         colors = true
-        #color_good = "#b8bb26"
-        #color_bad = "#fb4934"
-        #color_degraded = "#fabd2f"
         separator = ""
         output_format = "i3bar"
         interval = 2
@@ -19,7 +16,7 @@ general {
 order += "path_exists VPN"
 order += "disk /"
 order += "disk /home"
-#order += "disk /mnt/data"
+order += "cpu_usage"
 order += "load"
 order += "memory"
 order += "cpu_temperature 0"
@@ -46,9 +43,9 @@ disk "/home" {
 
 path_exists VPN {
         # path exists when a VPN tunnel is active
-        format = "🖧  OK"
-        format_down = "🖧  X"
-        path = "/proc/sys/net/ipv4/conf/tun0"
+        format = "🖧 ON"
+          format_down = "🖧 OFF"
+          path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
 battery all {
@@ -65,17 +62,22 @@ load {
 }
 
 memory {
-        format = "⚖️ %used | %available"
+        format = "⚖️ %used"
         threshold_degraded = "1G"
         format_degraded = "⛔ < %available"
 }
 
 cpu_temperature 0 {
         format = "🌡️ %degrees °C"
+        max_threshold = 80
         format_above_threshold = "🔥 %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon[1-3]/temp1_input"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
 }
 
 tztime local {
         format = "🌎 %a %d %H:%M"
+}
+
+cpu_usage {
+        format = "💻 %usage"
 }

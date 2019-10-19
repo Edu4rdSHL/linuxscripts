@@ -1,0 +1,10 @@
+[Unit]
+ Description=Check for new subdomains.
+
+[Timer]
+ OnBootSec=5min
+ OnUnitActiveSec=10min
+ Unit=findomain.service
+
+[Install]
+ WantedBy=timers.target
