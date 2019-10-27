@@ -1,0 +1,138 @@
+// waybar configuration for wayland/sway
+
+{
+  "layer": "top",
+    "position": "bottom",
+    "height": 24,
+    "modules-left": [
+    "sway/workspaces",
+    "custom/right-arrow-dark"
+    ],
+    "modules-right": [
+    "custom/left-arrow-dark",
+    "backlight",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "network",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "custom/vpn",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "pulseaudio",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "memory",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "cpu",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "temperature",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "battery",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "clock",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "tray"
+      ],
+
+      "custom/left-arrow-dark": {
+        "format": "",
+        "tooltip": false
+      },
+      "custom/left-arrow-light": {
+        "format": "",
+        "tooltip": false
+      },
+      "custom/right-arrow-dark": {
+        "format": "",
+        "tooltip": false
+      },
+      "custom/right-arrow-light": {
+        "format": "",
+        "tooltip": false
+      },
+
+      "sway/workspaces": {
+        "disable-scroll": true,
+        "format": "{name}"
+      },
+
+      "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "tooltip": false
+      },
+
+      "pulseaudio": {
+        "tooltip": false,
+        "format": "{icon} {volume:2}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-muted": "MUTE",
+        "format-icons": {
+          "headphones": "",
+          "default": [
+          "",
+          ""
+          ]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+      },
+      "memory": {
+        "tooltip": false,
+        "interval": 5,
+        "format": " {used:0.1f}G"
+      },
+      "cpu": {
+        "tooltip": false,
+        "interval": 5,
+        "format": " {usage:2}%"
+      },
+      "battery": {
+        "tooltip": false,
+        "states": {
+          "good": 95,
+          "warning": 30,
+          "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+          "",
+        "",
+        "",
+        "",
+        ""
+        ],
+        "interval": 5
+      },
+      "tray": {
+        "icon-size": 20,
+        "spacing": 5
+      },
+      "network": {
+        "format-wifi": " ON",
+        "format-ethernet": " ON",
+        "format-disconnected": " OFF",
+        "tooltip": false
+      },
+      "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% "
+      },
+      "temperature": {
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+      },
+      "custom/vpn": {
+        "interval": 5,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.local/bin/waybar_vpn"
+      }
+}

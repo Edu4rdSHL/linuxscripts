@@ -8,6 +8,10 @@ case $- in
       *) return;;
 esac
 
+if [ -f /etc/profile ]; then
+  source /etc/profile
+  fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -137,10 +141,10 @@ export TERM=xterm-256color
 ### Source scripts ###
 # Git prompt, see https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 if [ -f ~/.local/bin/git-prompt.sh ]; then
-  source ~/.local/bin/git-prompt.sh
+  source /home/sechacklabs/.local/bin/git-prompt.sh
 fi
 
 # Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+  XDG_SESSION_TYPE=wayland MOZ_ENABLE_WAYLAND=1 XKB_DEFAULT_LAYOUT=latam sway
 fi
