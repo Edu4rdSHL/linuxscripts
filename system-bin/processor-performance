@@ -1,13 +1,9 @@
 #!/usr/bin/env sh
-if [ "$1" == "start" ] && [ -z "$2" ]; then
-  echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
-  for fgovernor in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do echo performance > "${fgovernor}"; done
-  exit
-elif [ "$1" == "start" ] && [ "$2" == "turbo" ]; then
+if [ "$1" == "start" ]; then
   echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo
-  for fgovernor in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do echo performance > "${fgovernor}"; done
+  tee /sys/devices/system/cpu/cpufreq/policy*/scaling_governor <<< performance
   exit
 elif [ "$1" == "stop" ]; then
-  for fgovernor in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do echo powersave > "${fgovernor}"; done
+  tee /sys/devices/system/cpu/cpufreq/policy*/scaling_governor <<< powersave
   exit
 fi
