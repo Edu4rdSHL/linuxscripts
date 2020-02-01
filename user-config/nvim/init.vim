@@ -34,14 +34,16 @@ Plug 'jiangmiao/auto-pairs'
 " Completion for Rust
 Plug 'sebastianmarkow/deoplete-rust'
 
-" List ends here. Plugins become visible to Vim after this call.
+"List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Use mustache
 let g:mustache_abbreviations = 1
 
-" Use deoplete.
+" Use deoplete and set deoplete options
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('check_stderr', v:false)
+
 
 " Rust config
 let g:rustfmt_autosave = 1
@@ -119,3 +121,6 @@ set list                " Show problematic characters.
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
+
+" Sample command W to save a file in neovim without root permission with sudo
+" command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
