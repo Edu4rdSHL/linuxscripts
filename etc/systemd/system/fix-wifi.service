@@ -1,0 +1,9 @@
+[Unit]
+Description=Start workaround for RT8822BE wireless cards wifi issue when using the new rtwpci driver.
+
+[Service]
+# See https://github.com/Edu4rdSHL/linuxscripts/blob/master/system-bin/upnet
+ExecStart=/usr/bin/upnet
+
+[Install]
+WantedBy=sysinit.target
