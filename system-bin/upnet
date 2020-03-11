@@ -10,7 +10,7 @@ fi
 if command -v setpci >/dev/null; then
   if setpci -s 00:1c.5 0x50.B=0x40 && modprobe rtwpci; then
   # Uncomment the next line and change it to match your network services and init in use.
-    systemctl restart iwd systemd-networkd systemd-resolved
+  #  systemctl restart iwd systemd-networkd systemd-resolved
     echo "ASPM configurations applied. Restart your network services if you haven't set them in the script."
   else
     echo "An unknown error has occurred. Reboot and try again."
