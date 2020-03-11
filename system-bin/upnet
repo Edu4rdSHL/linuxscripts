@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 # Workaround for RT8822BE wireless cards wifi issue when using the new rtwpci driver.
+# You need to blacklist the following modules: rtwpci rtw88 r8822be (if installed).
+# See blacklist.conf example at https://github.com/Edu4rdSHL/linuxscripts/blob/master/etc/modprobe.d/blacklist.conf
 
 if [[ "$UID" -ne 0 ]]; then
   echo "You need to run the script as root."
