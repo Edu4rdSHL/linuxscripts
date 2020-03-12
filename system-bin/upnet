@@ -9,10 +9,12 @@ fi
 # Change the ASPM mode using the Link Control Register according to https://wireless.wiki.kernel.org/en/users/documentation/aspm#enabling_aspm_with_setpci (requires pciutils)
 if command -v setpci >/dev/null; then
   # Replace 00:1c.5 if needed. Execute `lspci | grep -i wifi | awk '{print $1}'`, then have in mind that result. Now execute `lspci -t` and see where that value belongs.
-  if setpci -s 00:1c.5 0x50.B=0x40 && sleep 1 && modprobe rtwpci; then
+  if setpci -s 00:1c.5 0x50.B=0x40 >/dev/null; then
+    sleep 2
+    modprobe rtwpci
     sleep 2
   # Uncomment the next line and change it to match your network services and init in use.
-    systemctl restart iwd systemd-networkd systemd-resolved
+    # systemctl restart iwd systemd-networkd systemd-resolved
     echo "ASPM configurations applied. Restart your network services if you haven't set them in the script."
   else
     echo "An unknown error has occurred. Reboot and try again."
