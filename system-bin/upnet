@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 # Workaround for RT8822BE wireless cards wifi issue when using the new rtwpci driver.
-# You need to blacklist the following modules: rtwpci rtw88 r8822be (if installed).
-# See blacklist.conf example at https://github.com/Edu4rdSHL/linuxscripts/blob/master/etc/modprobe.d/blacklist.conf
 
 if [[ "$UID" -ne 0 ]]; then
   echo "You need to run the script as root."
@@ -10,9 +8,10 @@ fi
 
 # Change the ASPM mode using the Link Control Register according to https://wireless.wiki.kernel.org/en/users/documentation/aspm#enabling_aspm_with_setpci (requires pciutils)
 if command -v setpci >/dev/null; then
-  if setpci -s 00:1c.5 0x50.B=0x40 && modprobe rtwpci; then
+  if setpci -s 00:1c.5 0x50.B=0x40 && sleep 1 && modprobe rtwpci; then
+    sleep 2
   # Uncomment the next line and change it to match your network services and init in use.
-  #  systemctl restart iwd systemd-networkd systemd-resolved
+    systemctl restart iwd systemd-networkd systemd-resolved
     echo "ASPM configurations applied. Restart your network services if you haven't set them in the script."
   else
     echo "An unknown error has occurred. Reboot and try again."
