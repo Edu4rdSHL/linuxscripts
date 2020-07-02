@@ -79,6 +79,9 @@ bindsym $mod+d exec discord
 # Signal
 bindsym $mod+s exec "signal-desktop --use-tray-icon"
 
+# Signal
+bindsym $mod+t exec "telegram-desktop"
+
 # Take screenshots
 bindsym Print exec "maim -s --format=png | xclip -selection clipboard -t image/png"
 bindsym --release Control+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; scrot -s -z $image -e 'mv $f /home/sechacklabs/Pictures/Screenshots/'; xclip -selection clipboard -t image/png -i /home/sechacklabs/Pictures/Screenshots/$image"
@@ -234,6 +237,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Preven focus loss of current application
+focus_on_window_activation urgent
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
