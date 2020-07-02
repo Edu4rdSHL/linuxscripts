@@ -49,13 +49,14 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec "xbacklight -set 50"
 # Battery icon, used to get notifications in battery critical level and more
 # exec cbatticon
+exec pcmanfm-qt -d
 
 ##### End of programs to run at startup #####
 
 ##### Programs to run with bindkeys #####
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec tilix
 
 # Screen lock
 bindsym $mod+l exec i3lock -e -u -t -i '/home/sechacklabs/Pictures/SHL/Nuevos Logos/shl-fin.png'
@@ -64,19 +65,19 @@ bindsym $mod+l exec i3lock -e -u -t -i '/home/sechacklabs/Pictures/SHL/Nuevos Lo
 bindsym $mod+x exec gajim
 
 # File manager
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F3 exec pcmanfm-qt
 
 # Firefox
-bindsym $mod+f exec firefox
+bindsym $mod+f exec firefox-beta
 
 # SMPlayer
-bindsym $mod+p exec vlc
+bindsym $mod+p exec smplayer
 
 # Discord
 bindsym $mod+d exec discord
 
 # Signal
-bindsym $mod+s exec slack
+bindsym $mod+s exec "signal-desktop --use-tray-icon"
 
 # Take screenshots
 bindsym Print exec "maim -s --format=png | xclip -selection clipboard -t image/png"
