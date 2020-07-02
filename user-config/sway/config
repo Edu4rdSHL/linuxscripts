@@ -4,13 +4,16 @@
 input "1267:12350:ELAN1200:00_04F3:303E_Touchpad" {
     tap enabled
     natural_scroll enabled
-    pointer_accel 1
+    pointer_accel 0.5
     dwt enabled
 }
 
 input "1112:390:KYE_SYSTEMS_CORP._Wired_Mouse" {
     pointer_accel 1
 }
+
+# Enable numlock
+input * xkb_numlock enabled
 
 # Set mod
 set $mod Mod4
@@ -31,33 +34,37 @@ focus_follows_mouse no
 ##### Programs to run at startup #####
 
 # Clipboard manager
-exec "jq -r '. | .[-1]' ~/.local/share/clipman.json | wl-copy"
-exec "wl-paste -t text --watch clipman store"
+#
+exec clipman restore
+exec wl-paste -t text --watch clipman store --max-items=50
+# exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json" --max-items=1000
+
 # Background
 output "*" bg '/home/sechacklabs/Pictures/SHL/Nuevos Logos/shl-fin.png' fill
 # Keyring daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Brightness
 exec "brightnessctl set 50%"
-
+# Pcmanfm daemon
+exec pcmanfm-qt -d
 ##### End of programs to run at startup #####
 
 ##### Programs to run with bindkeys #####
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec tilix
 
 # Screen lock
-bindsym $mod+l exec swaylock -e -u -t -i '/home/sechacklabs/Pictures/SHL/Nuevos Logos/shl-fin.png'
+bindsym $mod+l exec screenoff
 
 # Gajim XMPP client
 bindsym $mod+x exec gajim
 
 # File manager
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F3 exec pcmanfm-qt
 
 # Firefox
-bindsym $mod+f exec firefox
+bindsym $mod+f exec firefox-beta
 
 # SMPlayer
 bindsym $mod+p exec smplayer
@@ -65,11 +72,14 @@ bindsym $mod+p exec smplayer
 # Discord
 bindsym $mod+d exec discord
 
+# Discord
+bindsym $mod+t exec telegram-desktop
+
 # Signal
-bindsym $mod+s exec slack
+bindsym $mod+s exec 'signal-desktop --use-tray-icon'
 
 # Clipboard manager history
-bindsym $mod+Shift+h exec clipman pick -t rofi --max-items=20
+bindsym Control+Alt+h exec clipman pick -t wofi --max-items=50
 
 # Take screenshots
 bindsym --release Print exec 'grim -g "$(slurp)" - | wl-copy'
@@ -78,8 +88,8 @@ bindsym --release Control+Print exec 'image=`date "+%Y-%m-%d-%H%M%S"`-sechacklab
 bindsym --release $mod+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; grim /home/sechacklabs/Pictures/Screenshots/$image; wl-copy < /home/sechacklabs/Pictures/Screenshots/$image"
 
 # Video recording
-bindsym --release $mod+Shift+Print exec 'video=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.mp4; wf-recorder -o /home/sechacklabs/Videos/Recorded/$video'
-bindsym --release $mod+Control+Print exec 'video=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.mp4; wf-recorder -g "$(slurp)" -o /home/sechacklabs/Videos/Recorded/$video'
+bindsym --release $mod+Shift+Print exec 'video=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.mp4; wf-recorder -f /home/sechacklabs/Videos/Recorded/$video'
+bindsym --release $mod+Control+Print exec 'video=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.mp4; wf-recorder -g "$(slurp)" -f /home/sechacklabs/Videos/Recorded/$video'
 
 # Monitor brigthness
 bindcode 171 exec "brightnessctl set 5%+"
@@ -102,7 +112,7 @@ bindcode 124 exec propershutdown
 bindsym $mod+Shift+q kill
 
 # start Rofi (a program launcher)
-bindsym $mod+F2 exec "rofi -show combi"
+bindsym $mod+F2 exec wofi
 
 # change focus
 #bindsym $mod+j focus left
