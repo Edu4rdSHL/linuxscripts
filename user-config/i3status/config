@@ -13,7 +13,8 @@ general {
         interval = 2
 }
 
-order += "path_exists VPN"
+order += "wireless _first_"
+order += "ethernet _first_"
 order += "disk /"
 order += "disk /home"
 order += "cpu_usage"
@@ -39,6 +40,16 @@ disk "/home" {
         format = "🏡 %avail"
         low_threshold = 25
         threshold_type = percentage_avail
+}
+
+wireless _first_ {
+        format_up = " ON"
+        format_down = " OFF"
+}
+
+ethernet _first_ {
+        format_up = "🖧 ON"
+        format_down = "🖧 OFF"
 }
 
 path_exists VPN {
