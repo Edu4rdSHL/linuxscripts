@@ -49,7 +49,10 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec "xbacklight -set 50"
 # Battery icon, used to get notifications in battery critical level and more
 # exec cbatticon
+# Pcmanfm daemon
 exec pcmanfm-qt -d
+# Notifications daemon
+exec dunst
 
 ##### End of programs to run at startup #####
 
