@@ -1,0 +1,258 @@
+# Sway configuration
+
+# Devices config
+input "1267:12350:ELAN1200:00_04F3:303E_Touchpad" {
+    tap enabled
+    natural_scroll enabled
+    pointer_accel 0.5
+    dwt enabled
+}
+
+input "1112:390:KYE_SYSTEMS_CORP._Wired_Mouse" {
+    pointer_accel 1
+}
+
+# Enable numlock
+input * xkb_numlock enabled
+
+# Set mod
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 11
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Use tabbed layout mode
+workspace_layout tabbed
+
+# Disable mouse focus
+focus_follows_mouse no
+
+##### Programs to run at startup #####
+
+# Clipboard manager
+#
+exec clipman restore
+exec wl-paste -t text --watch clipman store --max-items=50
+# exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json" --max-items=1000
+
+# Scale factor
+output HDMI-A-1 mode 1920x1080@75Hz
+exec swaymsg focus output HDMI-A-1
+output eDP-1 dpms off
+
+# Background
+output "*" bg '/home/sechacklabs/Pictures/SHL/Nuevos Logos/shl-fin.png' fill
+# Keyring daemon
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Brightness
+exec "brightnessctl set 50%"
+# Pcmanfm daemon
+exec pcmanfm-qt -d
+##### End of programs to run at startup #####
+
+##### Programs to run with bindkeys #####
+
+# start a terminal
+bindsym $mod+Return exec tilix
+
+# Screen lock
+bindsym $mod+l exec screenoff
+
+# Gajim XMPP client
+bindsym $mod+x exec gajim
+
+# File manager
+bindsym $mod+F3 exec pcmanfm-qt
+
+# Firefox
+bindsym $mod+f exec firefox-beta
+
+# SMPlayer
+bindsym $mod+p exec smplayer
+
+# Discord
+bindsym $mod+d exec discord
+
+# Telegram
+bindsym $mod+t exec telegram-desktop
+
+# Signal
+bindsym $mod+s exec 'signal-desktop --use-tray-icon'
+
+# Clipboard manager history
+bindsym Control+Alt+h exec clipman pick -t rofi --max-items=50
+
+# Take screenshots
+bindsym --release Print exec 'grim -g "$(slurp)" - | wl-copy'
+bindsym --release Shift+Print exec 'grim - | wl-copy'
+bindsym --release Control+Print exec 'image=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.png; grim -g "$(slurp)" /home/sechacklabs/Pictures/Screenshots/$image; wl-copy < /home/sechacklabs/Pictures/Screenshots/$image'
+bindsym --release $mod+Print exec "image=`date '+%Y-%m-%d-%H%M%S'`-sechacklabs.png; grim /home/sechacklabs/Pictures/Screenshots/$image; wl-copy < /home/sechacklabs/Pictures/Screenshots/$image"
+
+# Video recording
+bindsym --release $mod+Shift+Print exec 'video=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.mp4; wf-recorder -f /home/sechacklabs/Videos/Recorded/$video'
+bindsym --release $mod+Control+Print exec 'video=`date "+%Y-%m-%d-%H%M%S"`-sechacklabs.mp4; wf-recorder -g "$(slurp)" -f /home/sechacklabs/Videos/Recorded/$video'
+
+# Monitor brigthness
+bindcode 171 exec "brightnessctl set 5%+"
+bindcode 173 exec "brightnessctl set 5%-"
+
+# Volume control
+bindcode 123 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink false ; pactl set-sink-volume $sink +5%"
+bindcode 122 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink false ; pactl set-sink-volume $sink -5%"
+bindcode 121 exec "sink=$(pacmd stat | awk -F': ' '/^Default sink name: /{print $2}'); pactl set-sink-mute $sink toggle"
+
+# Mute/unmute microphone
+bindcode 172 exec "sink=$(pacmd stat | awk -F': ' '/^Default source name: /{print $2}'); pactl set-source-mute $sink toggle"
+
+# Poweroff the machine
+bindcode 124 exec propershutdown
+
+##### End of custom bindkeys #####
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start Rofi (a program launcher)
+bindsym $mod+F2 exec "rofi -show combi"
+
+# change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+ntilde focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+ntilde move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+Shift+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+Control+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Workspaces
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 5 output HDMI-A-1
+workspace 6 output HDMI-A-1
+workspace 7 output eDP-1
+workspace 8 output eDP-1
+workspace 9 output eDP-1
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+#set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+# bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+# bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
+bindsym $mod+Shift+r restart
+# exit sway (logs you out of your X session)
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your X session.' -B 'Yes, exit Sway' 'swaymsg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start swaybar to display a workspace bar (plus the system information waybar
+# finds out, if available)
+bar {
+        swaybar_command waybar
+}
