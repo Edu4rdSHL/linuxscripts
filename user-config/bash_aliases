@@ -22,6 +22,9 @@ alias gitver='echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)'
 # Version for Git packages with tags
 alias gitag="git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'"
 
+# Add package to lists/to-release in BA development
+alias grelease="git commit -m 'to-release: add packages.'"
+
 # Alias to get sha512sums
 alias ssums='sha512sum'
 
@@ -56,10 +59,22 @@ alias cputemp='watch -n 0.01 sensors'
 # Alias to check what is my actual system IP using curl
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-# Alias to connect to ssh machines
-alias assh='ssh edu4rdshl@192.168.122.228'
-alias bassh='ssh root@192.168.122.230'
-alias dvwa='ssh dvwa@192.168.122.14'
+# systemd-nspawn containers
+
+# ArchLinux
+alias alct='snr ArchLinux -b'
+alias alshell='machinectl shell ArchLinux'
+
+# BlackArch
+alias bact='snr BlackArch -b'
+alias bashell='machinectl shell BlackArch'
+
+# Debian
+alias debct='snr Debian -b'
+alias debshell='machinectl shell Debian'
+
+alias kact='snr KaliLinux -b'
+alias kashell='machinectl shell KaliLinux'
 
 # Alias to start VirtualBox Machines in Headless mode
 # alias vbstart='VBoxHeadless -s'
@@ -68,7 +83,7 @@ alias dvwa='ssh dvwa@192.168.122.14'
 alias ip='ip --color'
 
 # Find the largest top 20 files and dirs in actual linux dir
-alias longdirs='du -a ./ | sort -n -r | head -n 20'
+alias longdirs='du -hca ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Alias for pacman
@@ -92,5 +107,8 @@ alias ipa='ip -c -br a'
 # Alias for temporal dir/files
 alias dtemp='cd $(mktemp -d)'
 alias ftemp='$EDITOR $(mktemp).txt'
+
+# Alias for wget in favor of curl
+alias wget='curl -L -O'
 
 ### END OWN ALIAS ###
