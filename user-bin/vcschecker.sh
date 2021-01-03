@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 STATIC_NAME="VCS checker"
 VERSION="1.0"
 
