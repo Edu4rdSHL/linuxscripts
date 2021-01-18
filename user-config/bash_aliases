@@ -60,21 +60,27 @@ alias cputemp='watch -n 0.01 sensors'
 alias wtfip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # systemd-nspawn containers
+nspawn_root_dir="/var/lib/machines"
 
 # ArchLinux
-alias alct='snr ArchLinux -b'
+alias alct="sudo systemd-nspawn -D $nspawn_root_dir/ArchLinux"
 alias alshell='machinectl shell ArchLinux'
 
 # BlackArch
-alias bact='snr BlackArch -b'
+alias bact="sudo systemd-nspawn -D $nspawn_root_dir/BlackArch"
 alias bashell='machinectl shell BlackArch'
 
 # Debian
-alias debct='snr Debian -b'
+alias debct="sudo systemd-nspawn -D $nspawn_root_dir/Debian"
 alias debshell='machinectl shell Debian'
 
-alias kact='snr KaliLinux -b'
+# Kali
+alias kact="sudo systemd-nspawn -D $nspawn_root_dir/KaliLinux"
 alias kashell='machinectl shell KaliLinux'
+
+# ParrotSec
+alias pact="sudo systemd-nspawn -D $nspawn_root_dir/ParrotSec"
+alias pashell='machinectl shell ParrotSec'
 
 # Alias to start VirtualBox Machines in Headless mode
 # alias vbstart='VBoxHeadless -s'

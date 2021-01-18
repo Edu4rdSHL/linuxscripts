@@ -66,7 +66,7 @@ cyan="$(tput bold; tput setaf 6)"
 nc="$(tput sgr0)"
 
 if [ "$color_prompt" = yes ]; then
-  PS1='\[$blue\][ \[$cyan\]\H \[$darkgrey\]\w\[$darkgrey\] \[$blue\]]\[$blue\]$(__git_ps1)\n└─ ▶\[$nc\] '
+  PS1='\[$blue\][ \[$cyan\]\H \[$darkgrey\]\w\[$darkgrey\] \[$blue\]]\[$blue\]$(__git_ps1)\n└─▶\[$nc\] '
 else
     PS1='\u@\h:\w\$ '
 fi
@@ -145,7 +145,7 @@ export TERM=xterm-256color
 ### Source scripts ###
 # Git prompt, see https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 if [ -f ~/.local/bin/git-prompt.sh ]; then
-  source /home/sechacklabs/.local/bin/git-prompt.sh
+  source $HOME/.local/bin/git-prompt.sh
 fi
 
 #if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
@@ -154,11 +154,5 @@ fi
 
 # Autostart X at login
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  _JAVA_AWT_WM_NONREPARENTING=1 GST_VAAPI_ALL_DRIVERS=1 QT_QPA_PLATFORM=wayland-egl QT_QPA_PLATFORMTHEME=qt5ct XDG_CURRENT_DESKTOP=Unity MOZ_ENABLE_WAYLAND=1 XKB_DEFAULT_LAYOUT=latam sway
-  # GST_VAAPI_ALL_DRIVERS=1 QT_QPA_PLATFORMTHEME=qt5ct XKB_DEFAULT_LAYOUT=latam startx
-<<<<<<< HEAD
-  # enlightenment_start
-=======
-  # _JAVA_AWT_WM_NONREPARENTING=1 GST_VAAPI_ALL_DRIVERS=1 QT_QPA_PLATFORM=wayland-egl QT_QPA_PLATFORMTHEME=qt5ct XDG_CURRENT_DESKTOP=Unity MOZ_ENABLE_WAYLAND=1 enlightenment_start
->>>>>>> 49f188a... Upload.
+  VDPAU_DRIVER=nvidia QT_QPA_PLATFORMTHEME=qt5ct XKB_DEFAULT_LAYOUT=latam startx
 fi
