@@ -1,7 +1,0 @@
-[Match]
-Name=enp2s0
-
-[Network]
-Bond=bond1
-LinkLocalAddressing=no
-PrimarySlave=true

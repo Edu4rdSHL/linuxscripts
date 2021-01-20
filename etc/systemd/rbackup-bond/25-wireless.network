@@ -1,6 +1,0 @@
-[Match]
-Name=wlp3s0
-
-[Network]
-LinkLocalAddressing=no
-Bond=bond1
