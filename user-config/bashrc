@@ -60,13 +60,17 @@ fi
 
 # colors
 darkgrey="$(tput bold ; tput setaf 0)"
-white="$(tput bold ; tput setaf 7)"
+red="$(tput bold; tput setaf 1)"
+green="$(tput bold; tput setaf 2)"
+yellow="$(tput bold; tput setaf 3)"
 blue="$(tput bold; tput setaf 4)"
+magenta="$(tput bold; tput setaf 5)"
 cyan="$(tput bold; tput setaf 6)"
+white="$(tput bold ; tput setaf 7)"
 nc="$(tput sgr0)"
 
 if [ "$color_prompt" = yes ]; then
-  PS1='\[$blue\][ \[$cyan\]\H \[$darkgrey\]\w\[$darkgrey\] \[$blue\]]\[$blue\]$(__git_ps1)\n└─▶\[$nc\] '
+  PS1='\[$red\]┌─$([[ $? != 0 ]] && echo "\[$magenta\][✗]\[$red\]─")\[$red\][ \[$blue\]\H \[$cyan\]\w\[$darkgrey\]\[$yellow\]$(__git_ps1)\[$red\] ]\n\[$red\]└──╼ \[$green\]$([[ $EUID == "0" ]] && echo "#" || echo "$")\[$nc\] '
 else
     PS1='\u@\h:\w\$ '
 fi
