@@ -1,12 +1,7 @@
 [Match]
-Name=enp2s0
+Name=en*
 
 [Network]
-DHCP=ipv4
-DNS=9.9.9.9
-DNSOverTLS=opportunistic
-DNSSEC=true
-
-[DHCP]
-RouteMetric=10
-UseDNS=no
+Bond=bond1
+LinkLocalAddressing=no
+PrimarySlave=true

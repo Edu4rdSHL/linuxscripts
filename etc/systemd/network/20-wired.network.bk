@@ -1,5 +1,5 @@
 [Match]
-Driver=mt76x2u
+Name=en*
 
 [Network]
 DHCP=ipv4

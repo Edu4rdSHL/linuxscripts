@@ -1,12 +1,6 @@
 [Match]
-Name=wlp3s0
+Driver=rtl8192eu
 
 [Network]
-DHCP=ipv4
-DNS=9.9.9.9
-DNSOverTLS=opportunistic
-DNSSEC=true
-
-[DHCP]
-RouteMetric=20
-UseDNS=no
+LinkLocalAddressing=no
+Bond=bond1
