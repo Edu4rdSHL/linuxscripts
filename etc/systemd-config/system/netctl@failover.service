@@ -1,8 +1,0 @@
-.include /usr/lib/systemd/system/netctl@.service
-
-[Unit]
-Description=A wired connection with failover to wireless
-BindsTo=sys-subsystem-net-devices-enp2s0.device
-BindsTo=sys-subsystem-net-devices-wlp3s0.device
-After=sys-subsystem-net-devices-enp2s0.device
-After=sys-subsystem-net-devices-wlp3s0.device
