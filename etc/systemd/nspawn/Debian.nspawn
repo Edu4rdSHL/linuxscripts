@@ -1,6 +1,5 @@
 [Exec]
 Boot=true
-Capability=CAP_NET_ADMIN
 PrivateUsers=pick
 
 [Files]
@@ -15,4 +14,4 @@ Bind=/etc/systemd/nspawn/20-machines-profile.sh:/etc/profile.d/20-machines-profi
 BindReadOnly=/tmp/.X11-unix
 
 [Network]
-VirtualEthernet=false
+VirtualEthernet=true
