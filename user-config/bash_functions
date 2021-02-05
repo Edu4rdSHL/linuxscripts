@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+nscopy() {
+  machinectl copy-to $1 $2 $3/${2##*/}
+}

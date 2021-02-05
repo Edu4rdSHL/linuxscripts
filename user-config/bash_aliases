@@ -93,8 +93,9 @@ alias longdirs='du -hca ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Alias for pacman
-alias uparch='sudo pacman -Syu --noconfirm'
-alias pss='pacman -Ss'
+alias u='paru -Syu --noconfirm'
+alias cu='checkupdates'
+alias pss='paru -Ss'
 
 # Alias for pkgfile
 alias pkgfile='pkgfile -v'

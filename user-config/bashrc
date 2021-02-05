@@ -113,6 +113,7 @@ alias l='ls -CF'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
     . ~/.bash_private_aliases
+    . ~/.bash_functions
 fi
 
 # enable programmable completion features (you don't need to enable
