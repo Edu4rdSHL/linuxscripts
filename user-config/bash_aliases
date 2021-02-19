@@ -64,7 +64,7 @@ nspawn_root_dir="/var/lib/machines"
 
 # ArchLinux
 alias alct="sudo systemd-nspawn -D $nspawn_root_dir/ArchLinux"
-alias alshell='machinectl shell ArchLinux'
+alias alshell='machinectl shell edu4rdshl@ArchLinux'
 
 # BlackArch
 alias bact="sudo systemd-nspawn -D $nspawn_root_dir/BlackArch"
@@ -95,7 +95,8 @@ alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 # Alias for pacman
 alias u='paru -Syu --noconfirm'
 alias cu='checkupdates'
-alias pss='paru -Ss'
+alias pss='pacman -Ss'
+alias sa='paru -Ss'
 
 # Alias for pkgfile
 alias pkgfile='pkgfile -v'
