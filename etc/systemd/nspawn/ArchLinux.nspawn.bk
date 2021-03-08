@@ -1,13 +1,17 @@
 [Exec]
 Boot=true
-Capability=CAP_NET_ADMIN
 PrivateUsers=false
 
 [Files]
+Bind=/dev/dri
+Bind=/dev/shm
+Bind=/dev/snd
+Bind=/dev/nvidia0
+Bind=/dev/nvidiactl
+Bind=/dev/nvidia-modeset
 Bind=/run/user/1000/pulse/native:/tmp/pulse_server
 Bind=/etc/systemd/nspawn/20-machines-profile.sh:/etc/profile.d/20-machines-profile.sh
-Bind=/proc/sys/net/ipv4/ip_forward
 BindReadOnly=/tmp/.X11-unix
 
 [Network]
-VirtualEthernet=false
+VirtualEthernet=true

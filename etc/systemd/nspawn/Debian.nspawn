@@ -3,15 +3,9 @@ Boot=true
 PrivateUsers=pick
 
 [Files]
-Bind=/dev/dri
-Bind=/dev/shm
-Bind=/dev/snd
-Bind=/dev/nvidia0
-Bind=/dev/nvidiactl
-Bind=/dev/nvidia-modeset
 Bind=/run/user/1000/pulse/native:/tmp/pulse_server
 Bind=/etc/systemd/nspawn/20-machines-profile.sh:/etc/profile.d/20-machines-profile.sh
 BindReadOnly=/tmp/.X11-unix
 
 [Network]
-VirtualEthernet=true
+VirtualEthernet=false
