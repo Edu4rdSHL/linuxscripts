@@ -1,0 +1,15 @@
+[Unit]
+Description=Update adblock hosts from SetevenBlack list.
+After=network-online.target
+
+[Service]
+ExecStart=bash -c 'curl -so /etc/hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts && resolvectl flush-caches'
+StartLimitBurst=5
+StartLimitInterval=500
+Restart=on-failure
+RestartSec=5s
+KillMode=process
+KillSignal=SIGINT
+
+[Install]
+WantedBy=default.target

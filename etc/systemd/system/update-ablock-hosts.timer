@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer for updating StevenBlack hosts daily.
+
+[Timer]
+OnBootSec=15s
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target
