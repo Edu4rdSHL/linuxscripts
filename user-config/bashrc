@@ -112,9 +112,21 @@ alias l='ls -CF'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_private_aliases ]; then
     . ~/.bash_private_aliases
+fi
+
+if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
+
+# https://repo.cykerway.com/complete-alias
+if [ -f /usr/share/bash-complete-alias/complete_alias ]; then
+  . /usr/share/bash-complete-alias/complete_alias
+fi
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

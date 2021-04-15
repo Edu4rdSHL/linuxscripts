@@ -47,7 +47,7 @@ alias gpush='git push'
 alias gpull='git pull'
 
 # Alias for git commit -m
-alias gcommit='git commit -m'
+alias gcommit='git commit -S -m'
 
 # Alias to kill Signal Private Messenger when crashed
 alias ksignal='killall -9 signal-desktop'
