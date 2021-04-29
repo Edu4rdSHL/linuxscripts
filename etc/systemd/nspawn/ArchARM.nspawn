@@ -1,6 +1,5 @@
 [Exec]
 Boot=true
-Capability=CAP_NET_ADMIN
 PrivateUsers=pick
 
 [Files]
