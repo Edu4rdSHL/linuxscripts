@@ -15,3 +15,8 @@ nsretr() {
     machinectl copy-from $1 $2 $3/${2##*/}
   fi
 }
+
+rs() {
+  local file=${1:-/dev/stdin}
+  curl --data-binary @${file} https://paste.rs
+}

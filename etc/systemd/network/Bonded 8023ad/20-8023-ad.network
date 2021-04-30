@@ -1,0 +1,6 @@
+[Match]
+Name=en*
+Driver=rtl8192eu
+
+[Network]
+Bond=bond1

@@ -1,7 +1,10 @@
 ### OWN ALIAS ###
 
+# Alias for sudo
+alias sudo='sudo --preserve-env '
+
 #Pastes
-alias rs="curl --data-binary @- https://paste.rs"
+# alias rs="curl --data-binary @- https://paste.rs" # Replaced by rs() function in .bash_aliases
 
 #Temperature
 alias clima='curl wttr.in/bogota?lang=es'
@@ -66,6 +69,10 @@ nspawn_root_dir="/var/lib/machines"
 alias alct="sudo systemd-nspawn -D $nspawn_root_dir/ArchLinux"
 alias alshell='machinectl shell edu4rdshl@ArchLinux'
 
+# ArchLinux ARM
+alias arct="sudo systemd-nspawn -D $nspawn_root_dir/ArchARM"
+alias arshell='machinectl shell edu4rdshl@ArchARM'
+
 # BlackArch
 alias bact="sudo systemd-nspawn -D $nspawn_root_dir/BlackArch"
 alias bashell='machinectl shell BlackArch'
@@ -97,6 +104,10 @@ alias u='paru -Syu --noconfirm'
 alias cu='checkupdates'
 alias pss='pacman -Ss'
 alias sa='paru -Ss'
+
+# Alias for paru
+alias yay='paru --removemake'
+alias paru='paru --removemake'
 
 # Alias for pkgfile
 alias pkgfile='pkgfile -v'

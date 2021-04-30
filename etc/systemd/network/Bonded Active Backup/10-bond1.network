@@ -1,0 +1,5 @@
+[Match]
+Name=bond1
+
+[Network]
+DHCP=ipv4
