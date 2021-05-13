@@ -1,0 +1,14 @@
+[Exec]
+Boot=true
+Capability=CAP_NET_ADMIN
+PrivateUsers=pick
+
+[Files]
+Bind=/etc/systemd/nspawn/20-machines-profile.sh:/etc/profile.d/20-machines-profile.sh
+Bind=/tmp/pa_containers.socket
+Bind=/dev/shm
+Bind=/dev/snd
+BindReadOnly=/tmp/.X11-unix
+
+[Network]
+MACVLAN=bond1
