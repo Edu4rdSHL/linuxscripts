@@ -154,8 +154,11 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/osxcross/target/bin:$HOME/.carg
 # Output vscode telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+# Steam Proton
+# export STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.local/share/Steam"
+
 # Set TERM
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 # Set rusnapshot database file
 # export RUSNAPSHOT_DATABASE_FILE="/mnt/defvol/_snapshots/rustnapshot.sqlite"

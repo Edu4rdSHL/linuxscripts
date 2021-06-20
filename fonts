@@ -1,0 +1,26 @@
+# Installed fonts
+adobe-source-code-pro-fonts
+cantarell-fonts
+gsfonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+t1lib
+ttf-dejavu
+xorg-fonts-encodings
+
+# Used fonts
+## GTK
+Default Font: Noto Sans Regular 10
+Default Monospace: Source Code Pro Regular 10
+
+## QT - QT5ct
+General: Noto Sans 10
+Fixed width: Noto Sans 10
+
+# Misc
+Anti-aliasing: yes
+Hinting: Full
+Sub-pixel order: None
+

@@ -2,6 +2,8 @@
 
 # Alias for sudo
 alias sudo='sudo --preserve-env '
+# Sometimes we don't want to preserve env, for example when using gpg keys.
+alias sudon='sudo '
 
 #Pastes
 # alias rs="curl --data-binary @- https://paste.rs" # Replaced by rs() function in .bash_aliases
@@ -50,7 +52,7 @@ alias gpush='git push'
 alias gpull='git pull'
 
 # Alias for git commit -m
-alias gcommit='git commit -S -m'
+alias gcommit='git commit -S --signoff -m'
 
 # Alias to kill Signal Private Messenger when crashed
 alias ksignal='killall -9 signal-desktop'
@@ -79,7 +81,7 @@ alias bashell='machinectl shell BlackArch'
 
 # Debian
 alias debct="sudo systemd-nspawn -D $nspawn_root_dir/Debian"
-alias debshell='machinectl shell Debian'
+alias debshell='machinectl shell edu4rdshl@Debian'
 
 # Kali
 alias kact="sudo systemd-nspawn -D $nspawn_root_dir/KaliLinux"
@@ -88,6 +90,10 @@ alias kashell='machinectl shell KaliLinux'
 # ParrotSec
 alias pact="sudo systemd-nspawn -D $nspawn_root_dir/ParrotSec"
 alias pashell='machinectl shell ParrotSec'
+
+# Fedora34
+alias fedct="sudo systemd-nspawn -D $nspawn_root_dir/Fedora34"
+alias fedshell='machinectl shell Fedora34'
 
 # Alias to start VirtualBox Machines in Headless mode
 # alias vbstart='VBoxHeadless -s'
@@ -100,7 +106,8 @@ alias longdirs='du -hca ./ | sort -n -r | head -n 20'
 alias longfiles="find ./ -printf '%s %p\n'| sort -nr | head -20"
 
 # Alias for pacman
-alias u='paru -Syu --noconfirm'
+alias u='paru -Syu --noconfirm --nodevel'
+alias ud='paru -Syu --noconfirm'
 alias cu='checkupdates'
 alias pss='pacman -Ss'
 alias sa='paru -Ss'
@@ -125,7 +132,7 @@ alias ipa='ip -c -br a'
 
 # Alias for temporal dir/files
 alias dtemp='cd $(mktemp -d)'
-alias ftemp='$EDITOR $(mktemp).txt'
+alias ftemp='$EDITOR $(mktemp)'
 
 # Alias for wget in favor of curl
 alias wget='curl -L -O'

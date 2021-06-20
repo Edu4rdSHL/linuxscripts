@@ -1,0 +1,4 @@
+{
+ "default.configured.audio.source": { "name": "alsa_input.pci-0000_07_00.4.analog-stereo" },
+ "default.configured.audio.sink": { "name": "alsa_output.pci-0000_05_00.1.hdmi-stereo-extra1" }
+}
