@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="accessibility" version="1.0">
+  <property name="SlowKeys" type="bool" value="false">
+    <property name="Delay" type="int" value="501"/>
+  </property>
+  <property name="BounceKeys" type="bool" value="true">
+    <property name="Delay" type="int" value="50"/>
+  </property>
+</channel>
