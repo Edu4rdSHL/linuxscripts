@@ -1,5 +1,5 @@
 [Match]
-Driver=rtl8192eu
+Driver=mt76x2u
 
 [Network]
 LinkLocalAddressing=no
