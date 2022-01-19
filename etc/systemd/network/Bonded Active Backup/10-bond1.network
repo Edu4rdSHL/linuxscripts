@@ -3,3 +3,8 @@ Name=bond1
 
 [Network]
 DHCP=ipv4
+LinkLocalAddressing=ipv4
+IPv6AcceptRA=no
+
+[DHCP]
+UseDNS=no
