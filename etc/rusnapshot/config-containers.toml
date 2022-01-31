@@ -1,0 +1,5 @@
+dest_dir = "/mnt/defvol/_snapshots/"
+source_dir = "/var/lib/machines/"
+database_file = "/mnt/defvol/_snapshots/rustnapshot.sqlite"
+snapshot_prefix = "containers"
+keep_only = "1"
