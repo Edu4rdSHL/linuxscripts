@@ -1,0 +1,29 @@
+#!/bin/bash
+if [ $# -gt 0 ]; then
+    filename=_posts/$(date +%Y-%m-%d-)
+    # Replace all the special characters with a hyphen
+    filename+=${*//[^a-zA-Z0-9_]/-}.md
+    filename=$(echo "$filename" | tr '[:upper:]' '[:lower:]' | sed 's/-\{2,\}/-/g')
+    if [ ! -f "$filename" ]; then
+        cat >"$filename" <<EOF
+---
+layout: post
+title: '$*'
+date: $(date +"%Y-%m-%d %H:%M %z")
+categories: ["tag"]
+tags: ["tag"]
+author: edu4rdshl
+image:
+  path: /images/default.jpg
+  alt: A description
+excerpt: A description
+---
+EOF
+        echo "Post created: $filename"
+    else
+        echo "Post $filename already exists"
+    fi
+else
+    echo "Please provide a title for the post"
+    exit 1
+fi
