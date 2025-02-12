@@ -3,12 +3,12 @@ if [ $# -gt 0 ]; then
     filename=_posts/$(date +%Y-%m-%d-)
     # Replace all the special characters with a hyphen
     filename+=${*//[^a-zA-Z0-9_]/-}.md
-    filename=$(echo "$filename" | tr '[:upper:]' '[:lower:]' | sed 's/-\{2,\}/-/g')
+    filename=$(echo "$filename" | tr '[:upper:]' '[:lower:]' | sed 's/-\{2,\}/-/g' | sed 's/-\.md$/.md/')
     if [ ! -f "$filename" ]; then
         cat >"$filename" <<EOF
 ---
 layout: post
-title: '$*'
+title: '${*//\'/\'\'}'
 date: $(date +"%Y-%m-%d %H:%M %z")
 categories: ["tag"]
 tags: ["tag"]
